@@ -31,3 +31,7 @@ Release/
 # Debug files
 *.dSYM/
 *.pdb
+
+# Graphviz
+*.dot
+*.png
