@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# C++ compiled files
+*.o
+*.obj
+*.out
+*.exe
+*.app
+*.elf
+*.bin
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+
+# C++ build directories
+build/
+Debug/
+Release/
+
+# Debug files
+*.dSYM/
+*.pdb
