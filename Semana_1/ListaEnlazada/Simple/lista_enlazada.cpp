@@ -89,7 +89,6 @@ public:
     ofstream archivo("lista.dot");
     archivo << "digraph ListaEnlazada {" << endl;
     archivo << "    rankdir=LR;" << endl;
-    // CAMBIA ESTA LÍNEA: agrega comillas dobles alrededor del color
     archivo << "    node [shape=record, style=filled, fillcolor=\"#eaff06\"];" << endl;
 
     Nodo* actual = cabeza;
@@ -123,7 +122,6 @@ public:
     }
 }
 
-    // Muestra la lista en consola (opcional, para verificar)
     void mostrar() {
         if (cabeza == nullptr) {
             cout << "La lista esta vacia." << endl;
