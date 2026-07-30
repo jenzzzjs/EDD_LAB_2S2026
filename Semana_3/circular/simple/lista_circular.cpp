@@ -103,7 +103,7 @@ public:
             return;
         }
 
-        ofstream archivo("lista_circular.dot");
+        ofstream archivo("simple/lista_circular.dot");
         archivo << "digraph ListaCircular {" << endl;
         archivo << "    rankdir=LR;" << endl;
         archivo << "    node [shape=record, style=filled, fillcolor=\"#eaff06\"];" << endl;
@@ -131,7 +131,7 @@ public:
         archivo << "}" << endl;
         archivo.close();
 
-        int resultado = system("dot -Tpng lista_circular.dot -o lista_circular.png");
+        int resultado = system("dot -Tpng simple/lista_circular.dot -o simple/lista_circular.png");
         if (resultado == 0) {
             cout << "Grafico generado: lista_circular.png" << endl;
         } else {
