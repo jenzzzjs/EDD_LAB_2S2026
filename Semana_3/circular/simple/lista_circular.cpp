@@ -4,7 +4,7 @@
 using namespace std;
 
 // nodo de la lista circular simple
-// cada nodo guarda un amigo (nombre y edad) y apunta al siguiente
+// cada nodo guarda un amigo y apunta al siguiente
 // el ultimo nodo apunta de vuelta al primero, formando un ciclo
 struct Nodo {
     string nombre;
@@ -66,7 +66,7 @@ public:
         do {
             if (actual->nombre == nombre) {
                 if (actual == cabeza) {
-                    // caso especial: eliminar la cabeza
+                    // caso especial eliminar la cabeza
                     if (actual->siguiente == cabeza) {
                         // unico nodo en la lista
                         cabeza = nullptr;
@@ -125,7 +125,7 @@ public:
         for (int j = 0; j < i - 1; j++) {
             archivo << "    nodo" << j << " -> nodo" << j + 1 << ";" << endl;
         }
-        // flecha del ultimo nodo al primero (cierre del ciclo)
+        // flecha del ultimo nodo al primero 
         archivo << "    nodo" << i - 1 << " -> nodo0;" << endl;
 
         archivo << "}" << endl;
