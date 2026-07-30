@@ -25,6 +25,7 @@ Thumbs.db
 
 # C++ build directories
 build/
+utilidades/build/
 Debug/
 Release/
 
