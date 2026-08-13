@@ -46,6 +46,8 @@ head
 | Archivo       | Contenido                                                        |
 |---------------|------------------------------------------------------------------|
 | `Matriz.cpp`  | Clase `Node`, clase `MatrizDispersaTipoDirector` y `main()`      |
+| `Dockerfile`  | Definicion de la imagen Docker que compila y ejecuta el programa |
+| `peliculas.csv` | Datos de ejemplo (13 peliculas con tipo y director)            |
 
 ## Como funciona
 
@@ -75,6 +77,87 @@ g++ Matriz/Matriz.cpp -o Matriz/Matriz;
 ```
 
 > **Nota:** En Windows el ejecutable se genera como `Matriz.exe`. Ejecutar desde la carpeta `Semana_5/` para que los archivos `MatrizDispersa.dot` y `MatrizDispersa.png` se generen dentro de la carpeta `Matriz/`.
+
+## Ejecucion con Docker
+
+El proyecto incluye un `Dockerfile` que compila el programa con `g++` en una etapa de build y produce una imagen final (~72 MB, basada en `alpine`) con el binario compilado de forma estatica **y Graphviz incluido**, por lo que la **opcion 5 genera el PNG automaticamente** dentro del contenedor, sin pasos adicionales.
+
+### Prerrequisito
+
+Tener [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado y en ejecucion.
+
+### 1. Construir la imagen
+
+Ejecutar desde la carpeta `Semana_5/Matriz`:
+
+```bash
+docker build -t matriz .
+```
+
+Esto crea la imagen llamada `matriz` con el ejecutable, Graphviz y los datos de ejemplo (`peliculas.csv`).
+
+### 2. Ejecutar el contenedor
+
+Desde la carpeta `Semana_5/Matriz` (PowerShell):
+
+```powershell
+docker run -it --rm -v ${PWD}:/app/Matriz matriz
+```
+
+- `-it`: ejecuta el programa de forma interactiva (necesario para el menu).
+- `--rm`: elimina el contenedor automaticamente al salir del programa.
+- `-v ${PWD}:/app/Matriz`: monta tu carpeta local para que `MatrizDispersa.dot` y `MatrizDispersa.png` se guarden en tu carpeta `Matriz/` y no se pierdan al cerrar el contenedor.
+
+Dentro del programa, para cargar el CSV de ejemplo escribe la ruta `/app/peliculas.csv`.
+
+Al elegir la **opcion 5 (Graficar Matriz)** se generan `Matriz/MatrizDispersa.dot` y `Matriz/MatrizDispersa.png` dentro de tu carpeta local, de forma automatica.
+
+Tambien puedes ejecutarlo como un contenedor con nombre (para poder pararlo y eliminarlo):
+
+```powershell
+docker run -it --name matriz-container -v ${PWD}:/app/Matriz matriz
+```
+
+### 3. Parar el contenedor
+
+- Dentro del programa: elegir la opcion **7. Salir**.
+- Desde otra terminal:
+
+```powershell
+docker stop matriz-container
+```
+
+Para listar los contenedores en ejecucion:
+
+```powershell
+docker ps
+```
+
+### 4. Eliminar el contenedor
+
+```powershell
+docker rm matriz-container
+```
+
+### 5. Eliminar la imagen
+
+Cuando ya no la necesites:
+
+```powershell
+docker rmi matriz
+```
+
+### Resumen de comandos
+
+| Accion              | Comando                                        |
+|---------------------|------------------------------------------------|
+| Construir imagen    | `docker build -t matriz .`                     |
+| Ejecutar (1 sola vez) | `docker run -it --rm -v ${PWD}:/app/Matriz matriz` |
+| Ejecutar con nombre | `docker run -it --name matriz-container -v ${PWD}:/app/Matriz matriz` |
+| Ver contenedores    | `docker ps`                                    |
+| Parar contenedor    | `docker stop matriz-container`                 |
+| Eliminar contenedor | `docker rm matriz-container`                   |
+| Eliminar imagen     | `docker rmi matriz`                            |
 
 ## Reporte grafico
 

@@ -65,7 +65,7 @@ private:
     Node* searchVertHead(string row);
 
 
-    void deleteAllNodes(Node* Node);
+    void deleteAllNodes(Node* nodo);
 
     string replaceSpaces(const string& str);
 
@@ -82,12 +82,35 @@ MatrizDispersaTipoDirector::~MatrizDispersaTipoDirector() {
     deleteAllNodes(head);
 }
 
-// elimina de forma recursiva todos los nodos de la matriz
-void MatrizDispersaTipoDirector::deleteAllNodes(Node* Node) {
-    if (Node == nullptr) return;
-    deleteAllNodes(Node->right);
-    deleteAllNodes(Node->down);
-    delete Node;
+// elimina todos los nodos de la matriz
+// cada celda pertenece a una sola fila, por lo que se recorre la lista de
+// celdas de cada fila y se libera cada celda exactamente una vez
+void MatrizDispersaTipoDirector::deleteAllNodes(Node* nodo) {
+    if (nodo == nullptr) return;
+
+    // se liberan los encabezados de fila y sus celdas
+    Node* row = nodo->down;
+    while (row != nullptr) {
+        Node* siguienteFila = row->down;
+        Node* celda = row->right;
+        while (celda != nullptr) {
+            Node* siguienteCelda = celda->right;
+            delete celda;
+            celda = siguienteCelda;
+        }
+        delete row;
+        row = siguienteFila;
+    }
+
+    // se liberan los encabezados de columna
+    Node* col = nodo->right;
+    while (col != nullptr) {
+        Node* siguienteCol = col->right;
+        delete col;
+        col = siguienteCol;
+    }
+
+    delete nodo;
 }
 
 
@@ -356,9 +379,8 @@ void MatrizDispersaTipoDirector::printTipoAndDirectorByPelicula(const string& pe
 
 // genera el archivo .dot de la matriz y lo compila a PNG con Graphviz
 bool MatrizDispersaTipoDirector::ObtenerGraphviz() {
-    FILE* fp;
-    errno_t err = fopen_s(&fp, "Matriz/MatrizDispersa.dot", "w+");
-    if (err != 0) {
+    FILE* fp = fopen("Matriz/MatrizDispersa.dot", "w");
+    if (fp == nullptr) {
         fprintf(stderr, "Error al abrir el archivo 'Matriz/MatrizDispersa.dot'\n");
         return false;
     }
@@ -602,9 +624,26 @@ bool MatrizDispersaTipoDirector::ObtenerGraphviz() {
 
     fclose(fp);
 
-    // compilamos el .dot a PNG y abrimos la imagen
-    system("dot -Tpng Matriz/MatrizDispersa.dot -o Matriz/MatrizDispersa.png");
+    // compilamos el .dot a PNG con Graphviz (si esta instalado)
+#ifdef _WIN32
+    int dotResult = system("dot -Tpng Matriz/MatrizDispersa.dot -o Matriz/MatrizDispersa.png");
+#else
+    int dotResult = system("dot -Tpng Matriz/MatrizDispersa.dot -o Matriz/MatrizDispersa.png 2>/dev/null");
+#endif
+    if (dotResult != 0) {
+        cout << "Se genero el archivo MatrizDispersa.dot." << endl;
+        cout << "No se pudo generar el PNG (Graphviz no disponible)." << endl;
+        cout << "Instalalo y ejecuta: dot -Tpng MatrizDispersa.dot -o MatrizDispersa.png" << endl;
+        return true;
+    }
+
+#ifdef _WIN32
+    // en Windows abrimos la imagen con el visor predeterminado
     system("start Matriz/MatrizDispersa.png");
+#else
+    // en Linux no se abre un visor, solo se indica donde quedo el PNG
+    cout << "Imagen generada en Matriz/MatrizDispersa.png" << endl;
+#endif
     return true;
 }
 
@@ -673,9 +712,7 @@ int main() {
         }
         // genera el reporte grafico de la matriz
         case 5:
-            if (matriz.ObtenerGraphviz()) {
-                cout << "Matriz graficada correctamente." << endl;
-            }
+            matriz.ObtenerGraphviz();
             break;
         // carga las peliculas desde un archivo CSV
         case 6: {

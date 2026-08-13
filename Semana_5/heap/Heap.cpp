@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Piloto guarda los datos de un piloto: nombre, nacionalidad y horas de vuelo
 class Piloto {
 private:
     std::string nombre;
@@ -31,10 +32,9 @@ std::ostream& operator<<(std::ostream& os, const Piloto& piloto) {
     return os;
 }
 
-// Heap Binario (Max-Heap) de pilotos implementado sobre un arreglo
 // El heap se ordena por horas de vuelo: la raiz es el piloto con mas horas
-// El hijo izquierdo de un nodo en la posicion i es 2*i+1, el derecho 2*i+2
-// y su padre es (i-1)/2
+// Los hijos de cada nodo estan en las posiciones que le siguen dentro del arreglo
+// y su padre esta en una posicion anterior
 class HeapMaxPilotos {
 private:
     vector<Piloto> datos;
@@ -69,6 +69,7 @@ private:
         }
     }
 
+    // quita las comillas que envuelven un campo al leer el CSV
     std::string quitarComillas(const std::string& campo) {
         std::string resultado = campo;
         if (resultado.size() >= 2 && resultado.front() == '"' && resultado.back() == '"') {
@@ -95,7 +96,7 @@ public:
     }
 
     // construye el heap desde el arreglo actual aplicando el algoritmo estandar
-    // de heapify (de abajo hacia arriba): cada nodo se "hunde" hasta su posicion
+    // de heapify, hundiendo cada nodo hasta su posicion correcta empezando desde el final
     void heapify() {
         int tam = datos.size();
         for (int i = tam / 2 - 1; i >= 0; --i) {
@@ -103,7 +104,7 @@ public:
         }
     }
 
-    // elimina y devuelve el piloto con mas horas de vuelo (la raiz del heap)
+    // elimina y devuelve el piloto con mas horas de vuelo, el que esta en la raiz
     Piloto eliminarMax() {
         if (estaVacio()) {
             cout << "El heap esta vacio." << endl;
@@ -200,7 +201,7 @@ public:
 
         archivo.close();
 
-        // construye el heap con el algoritmo estandar (heapify) sobre el arreglo cargado
+        // construye el heap con el algoritmo estandar de heapify sobre el arreglo cargado
         datos = cargados;
         heapify();
 
