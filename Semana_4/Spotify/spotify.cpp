@@ -264,7 +264,7 @@ void eliminarCancion() {
     }
 
     // Se obtienen las canciones del artista para mostrarlas
-    vector<pair<string, int>> canciones = listaArtistas.obtenerCancionesDeArtista(artista);
+    ArregloDinamico<ParCancion> canciones = listaArtistas.obtenerCancionesDeArtista(artista);
     if (canciones.empty()) {
         cout << "\nEl artista '" << artista << "' no tiene canciones registradas.\n";
         cout << "Presione Enter para continuar...";
@@ -274,14 +274,14 @@ void eliminarCancion() {
 
     cout << "\nCanciones de '" << artista << "' (" << canciones.size() << "):\n";
     cout << string(30, '-') << "\n";
-    for (size_t c = 0; c < canciones.size(); c++) {
-        cout << "  * " << canciones[c].first << " (" << canciones[c].second << ")\n";
+    for (int c = 0; c < canciones.size(); c++) {
+        cout << "  * " << canciones[c].nombre << " (" << canciones[c].anio << ")\n";
     }
 
     // Por FIFO se eliminara la primera cancion que entro a la cola
     cout << "\nLas canciones se guardan en una COLA (FIFO), por lo que se eliminara ";
     cout << "la primera en entrar:\n";
-    cout << "  > " << canciones[0].first << " (" << canciones[0].second << ")\n";
+    cout << "  > " << canciones[0].nombre << " (" << canciones[0].anio << ")\n";
 
     // Se desencola y los datos de la eliminada se devuelven por referencia
     string nombre;
@@ -330,8 +330,8 @@ void generarReporte() {
     cout << string(30, '-') << "\n";
 
     // Resumen de lo que se va a graficar
-    vector<NodoArtista*> artistas = listaArtistas.obtenerArtistas();
-    for (size_t i = 0; i < artistas.size(); i++) {
+    ArregloDinamico<NodoArtista*> artistas = listaArtistas.obtenerArtistas();
+    for (int i = 0; i < artistas.size(); i++) {
         cout << "* " << artistas[i]->nombre << " (" << artistas[i]->cantidadCanciones() << " canciones)\n";
     }
 

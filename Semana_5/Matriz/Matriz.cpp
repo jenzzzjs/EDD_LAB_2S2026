@@ -1,12 +1,93 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
-#include <algorithm>
 #include <cstdio>
 #include <cstdlib>
 
 using namespace std;
+
+// ArregloDinamico reemplaza al vector de la STL con codigo propio
+// Es un arreglo que crece solo cuando se llena y permite acceder por indice
+template <typename T>
+class ArregloDinamico {
+private:
+    T* datos;
+    int capacidad;
+    int cantidad;
+
+public:
+    // El arreglo arranca vacio, sin bloque de memoria asignado
+    ArregloDinamico() : datos(nullptr), capacidad(0), cantidad(0) {}
+
+    // Libera la memoria cuando se destruye el arreglo
+    ~ArregloDinamico() {
+        delete[] datos;
+    }
+
+    // Copia el contenido de otro arreglo cuando se crea uno nuevo
+    ArregloDinamico(const ArregloDinamico& otro) : datos(nullptr), capacidad(0), cantidad(0) {
+        copiar(otro);
+    }
+
+    // Copia el contenido de otro arreglo cuando se asigna uno a otro
+    ArregloDinamico& operator=(const ArregloDinamico& otro) {
+        if (this != &otro) {
+            delete[] datos;
+            datos = nullptr;
+            capacidad = 0;
+            cantidad = 0;
+            copiar(otro);
+        }
+        return *this;
+    }
+
+    // Agrega un elemento al final y crece si hace falta
+    void agregar(const T& valor) {
+        if (cantidad == capacidad) {
+            int nuevaCapacidad = capacidad == 0 ? 4 : capacidad * 2;
+            T* nuevo = new T[nuevaCapacidad];
+            for (int i = 0; i < cantidad; i++) {
+                nuevo[i] = datos[i];
+            }
+            delete[] datos;
+            datos = nuevo;
+            capacidad = nuevaCapacidad;
+        }
+        datos[cantidad] = valor;
+        cantidad++;
+    }
+
+    // Devuelve el elemento que esta en la posicion indicada
+    T& operator[](int posicion) {
+        return datos[posicion];
+    }
+
+    // Version constante que solo deja leer el elemento
+    const T& operator[](int posicion) const {
+        return datos[posicion];
+    }
+
+    // Cantidad de elementos guardados
+    int size() const {
+        return cantidad;
+    }
+
+    // True si el arreglo esta vacio
+    bool empty() const {
+        return cantidad == 0;
+    }
+
+private:
+    // Copia los datos de otro arreglo hacia este
+    void copiar(const ArregloDinamico& otro) {
+        cantidad = otro.cantidad;
+        capacidad = otro.cantidad;
+        datos = capacidad > 0 ? new T[capacidad] : nullptr;
+        for (int i = 0; i < cantidad; i++) {
+            datos[i] = otro.datos[i];
+        }
+    }
+};
 
 // Node es la celda de la matriz dispersa, guarda la fila, la columna y el valor
 // Cada celda tiene punteros a sus cuatro vecinos, arriba, abajo, izquierda y derecha
@@ -117,7 +198,11 @@ void MatrizDispersaTipoDirector::deleteAllNodes(Node* nodo) {
 // reemplaza los espacios por guiones bajos para los nombres de los nodos en el grafo
 string MatrizDispersaTipoDirector::replaceSpaces(const string& str) {
     string result = str;
-    replace(result.begin(), result.end(), ' ', '_');
+    for (size_t i = 0; i < result.size(); i++) {
+        if (result[i] == ' ') {
+            result[i] = '_';
+        }
+    }
     return result;
 }
 
@@ -193,14 +278,14 @@ void MatrizDispersaTipoDirector::cargarCSV(const string& ruta) {
 
         // separamos los campos por comas y quitamos las comillas dobles si las hay
         size_t inicio = 0;
-        vector<string> campos;
+        ArregloDinamico<string> campos;
         for (size_t i = 0; i <= linea.size(); ++i) {
             if (i == linea.size() || linea[i] == ',') {
                 string campo = linea.substr(inicio, i - inicio);
                 if (campo.size() >= 2 && campo.front() == '"' && campo.back() == '"') {
                     campo = campo.substr(1, campo.size() - 2);
                 }
-                campos.push_back(campo);
+                campos.agregar(campo);
                 inicio = i + 1;
             }
         }

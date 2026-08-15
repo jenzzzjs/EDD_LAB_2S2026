@@ -3,8 +3,6 @@
 #define ARTISTAS_H
 
 #include <string>   // Para usar el tipo string
-#include <vector>   // Para devolver artistas y canciones en vectores
-#include <utility>  // Para agrupar el nombre y el anio en un par
 #include <cstdio>   // Para snprintf que arma el color hexadecimal del DOT
 #include "Canciones.h" // Cada artista tiene su propia cola de canciones
 using namespace std;
@@ -33,8 +31,8 @@ public:
         return colaCanciones.desencolar(nombre, anio);
     }
 
-    // Devuelve todas las canciones del artista en un vector
-    vector<pair<string, int>> obtenerCanciones() {
+    // Devuelve todas las canciones del artista en un arreglo dinámico
+    ArregloDinamico<ParCancion> obtenerCanciones() {
         return colaCanciones.obtenerTodasCanciones();
     }
 
@@ -106,13 +104,13 @@ public:
         return buscar(nombre) != nullptr;
     }
 
-    // Devuelve todos los artistas en un vector para mostrarlos
-    vector<NodoArtista*> obtenerArtistas() {
-        vector<NodoArtista*> artistas;
+    // Devuelve todos los artistas en un arreglo dinámico para mostrarlos
+    ArregloDinamico<NodoArtista*> obtenerArtistas() {
+        ArregloDinamico<NodoArtista*> artistas;
         NodoArtista* actual = cabeza;
 
         while (actual != nullptr) {
-            artistas.push_back(actual);
+            artistas.agregar(actual);
             actual = actual->siguiente;
         }
 
@@ -130,10 +128,10 @@ public:
     }
 
     // Devuelve las canciones del artista indicado (vacio si no existe)
-    vector<pair<string, int>> obtenerCancionesDeArtista(string nombreArtista) {
+    ArregloDinamico<ParCancion> obtenerCancionesDeArtista(string nombreArtista) {
         NodoArtista* artista = buscar(nombreArtista);
         if (artista == nullptr) {
-            return vector<pair<string, int>>();
+            return ArregloDinamico<ParCancion>();
         }
 
         return artista->obtenerCanciones();
@@ -183,9 +181,12 @@ public:
         dot += "    edge [arrowsize=0.8, color=black, fontcolor=black];\n\n";
 
         // Se guardan los artistas y cuantas canciones tiene cada uno
-        vector<NodoArtista*> artistas = obtenerArtistas();
-        int totalArtistas = (int)artistas.size();
-        vector<int> cancionesPorArtista(totalArtistas, 0);
+        ArregloDinamico<NodoArtista*> artistas = obtenerArtistas();
+        int totalArtistas = artistas.size();
+        ArregloDinamico<int> cancionesPorArtista;
+        for (int i = 0; i < totalArtistas; i++) {
+            cancionesPorArtista.agregar(0);
+        }
 
         // 1) Nodos de los artistas, todos en un mismo rango para la fila superior
         dot += "    {\n";
@@ -215,8 +216,8 @@ public:
 
         // 3) Un nodo por cancion, se guarda el conteo por artista
         for (int a = 0; a < totalArtistas; a++) {
-            vector<pair<string, int>> canciones = artistas[a]->obtenerCanciones();
-            int contadorC = (int)canciones.size();
+            ArregloDinamico<ParCancion> canciones = artistas[a]->obtenerCanciones();
+            int contadorC = canciones.size();
             cancionesPorArtista[a] = contadorC;
 
             dot += "    // CANCIONES DE: " + artistas[a]->nombre + "\n";
@@ -232,7 +233,7 @@ public:
 
                     // Cada cancion es un nodo con su nombre y anio
                     dot += "    cancion" + to_string(a) + "_" + to_string(c) + " [label=\"" +
-                           canciones[c].first + "\\n(" + to_string(canciones[c].second) + ")\", " +
+                           canciones[c].nombre + "\\n(" + to_string(canciones[c].anio) + ")\", " +
                            "shape=box, style=\"filled\", fillcolor=\"" + colorFill + "\", " +
                            "color=\"black\", penwidth=1.5, width=1.4, height=0.9, " +
                            "fontcolor=\"white\", fontname=\"Helvetica\"];\n";

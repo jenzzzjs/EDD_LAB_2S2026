@@ -3,9 +3,16 @@
 #define CANCIONES_H
 
 #include <string>   // Para el tipo string
-#include <vector>   // Para devolver las canciones en un vector
-#include <utility>  // Para agrupar el nombre y el anio en un par
+#include "ArregloDinamico.h" // Arreglo dinamico propio que reemplaza al vector
 using namespace std;
+
+// ParCancion agrupa el nombre y el anio de una cancion sin usar pair de la STL
+struct ParCancion {
+    string nombre; // Nombre de la cancion
+    int anio;      // Anio de lanzamiento
+
+    ParCancion() : nombre(""), anio(0) {}
+};
 
 struct NodoCancion {
     string nombre;     // Nombre de la cancion
@@ -61,13 +68,16 @@ public:
         return true;
     }
 
-    // Recorre la cola y devuelve todas las canciones en un vector
-    vector<pair<string, int>> obtenerTodasCanciones() {
-        vector<pair<string, int>> canciones;
+    // Recorre la cola y devuelve todas las canciones en un arreglo dinámico
+    ArregloDinamico<ParCancion> obtenerTodasCanciones() {
+        ArregloDinamico<ParCancion> canciones;
         NodoCancion* actual = frente;
 
         while (actual != nullptr) {
-            canciones.push_back(make_pair(actual->nombre, actual->anio));
+            ParCancion par;
+            par.nombre = actual->nombre;
+            par.anio = actual->anio;
+            canciones.agregar(par);
             actual = actual->siguiente;
         }
 
