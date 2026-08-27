@@ -1,0 +1,41 @@
+codigo,titulo,genero,duracion,clasificacion,idioma,fecha_estreno,fecha_fin
+P042,El Regreso del Héroe,Aventura,130,A,Español,2026-03-25,2026-04-05
+P019,Coco 2,Animación,110,AA,Español,2026-07-01,2026-07-15
+P055,Transformers 7,Acción,148,B15,Inglés,2026-01-05,2026-01-20
+P033,Shrek 5,Animación,100,AA,Español,2026-01-18,2026-02-01
+P027,Spider-Man: Multiverso 3,Acción,140,B15,Inglés,2026-02-10,2026-02-25
+P048,Jurassic World 4,Ciencia Ficción,155,B15,Subtitulada,2026-02-28,2026-03-15
+P021,Toy Story 5,Animación,105,AA,Español,2026-03-10,2026-03-22
+P036,Misión Imposible 9,Acción,160,B15,Subtitulada,2026-04-10,2026-04-28
+P052,Encanto 2,Animación,100,AA,Español,2026-04-15,2026-04-28
+P024,Los Cuatro Fantásticos,Acción,135,B15,Inglés,2026-05-01,2026-05-15
+P039,Relatos de la Cripta,Terror,108,C15,Subtitulada,2026-05-10,2026-05-22
+P018,Despicable Me 5,Animación,98,AA,Español,2026-05-20,2026-06-02
+P044,Gladiator III,Acción,155,B15,Subtitulada,2026-06-01,2026-06-18
+P030,Minions 4,Animación,90,AA,Español,2026-06-10,2026-06-22
+P057,The Batman 2,Acción,145,B15,Inglés,2026-06-25,2026-07-10
+P022,El Mandarín,Acción,138,B15,Subtitulada,2026-07-15,2026-07-30
+P046,Monsters University 2,Animación,102,AA,Español,2026-07-20,2026-08-02
+P029,Avatar 4,Ciencia Ficción,190,B15,Subtitulada,2026-08-01,2026-08-25
+P041,Deadpool & Wolverine 2,Acción,128,B15,Inglés,2026-08-15,2026-08-28
+P034,Inside Out 3,Animación,100,AA,Español,2026-09-01,2026-09-14
+P050,John Wick 5,Acción,130,B15,Inglés,2026-09-10,2026-09-25
+P025,The Little Mermaid 2,Animación,108,AA,Español,2026-09-20,2026-10-03
+P037,Oppenheimer 2,Drama,170,B15,Subtitulada,2026-10-01,2026-10-20
+P053,Wreck-It Ralph 3,Animación,105,AA,Español,2026-10-10,2026-10-22
+P028,Alien: Romulus 2,Terror,125,C15,Inglés,2026-10-25,2026-11-08
+P040,The Lion King 3,Animación,112,AA,Español,2026-11-01,2026-11-15
+P047,Mission: Impossible 10,Acción,158,B15,Subtitulada,2026-11-10,2026-11-28
+P032,Moana 3,Animación,100,AA,Español,2026-11-20,2026-12-05
+P056,Dune 4,Ciencia Ficción,165,B15,Inglés,2026-12-01,2026-12-18
+P023,El Secreto del Mediodía,Aventura,125,A,Subtitulada,2026-12-05,2026-12-18
+P051,Cars 4,Animación,98,AA,Español,2026-12-10,2026-12-23
+P038,The Flash 2,Acción,132,B15,Inglés,2026-12-15,2026-12-30
+P043,Incredibles 3,Animación,115,AA,Español,2026-12-20,2026-12-31
+P026,Sin City 3,Drama,120,C15,Subtitulada,2026-01-08,2026-01-22
+P035,Back to the Future 4,Ciencia Ficción,135,B15,Inglés,2026-02-15,2026-03-02
+P045,La Bella y la Bestia 2,Animación,110,AA,Español,2026-03-20,2026/04/02
+P020,Pirates of the Caribbean 6,Aventura,145,B15,Subtitulada,2026-04-20,2026-05-08
+P049,Aladdin 2,Animación,105,AA,Español,2026-05-15,2026-05-28
+P031,Blade Runner 2099,Ciencia Ficción,155,B15,Inglés,2026-06-15,2026-07-02
+P054,Kung Fu Panda 5,Animación,100,AA,Español,2026-07-10,2026-07-23

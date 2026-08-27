@@ -1,0 +1,63 @@
+codigo,titulo,genero,duracion,clasificacion,idioma,fecha_estreno,fecha_fin
+P087,Avatar 5,Ciencia Ficción,195,B15,Subtitulada,2026-01-10,2026-02-05
+P063,Indiana Jones 6,Aventura,140,B15,Inglés,2026-01-20,2026-02-05
+P099,El Camino del Guerrero,Acción,132,B15,Subtitulada,2026-02-01,2026-02-15
+P072,Los Vengadores 5,Acción,175,B15,Inglés,2026-02-15,2026-03-10
+P058,Coraline 2,Terror,105,C15,Subtitulada,2026-02-20,2026-03-05
+P112,El Psicólogo Nocturno,Terror,118,C15,Subtitulada,2026-03-01,2026-03-15
+P080,Intensamente 3,Animación,100,AA,Español,2026-03-08,2026-03-20
+P067,Rápido y Furioso 11,Acción,138,B15,Inglés,2026-03-15,2026-03-28
+P104,La Lección del Silencio,Drama,125,A,Español,2026-03-22,2026-04-05
+P075,Frozen 4,Animación,102,AA,Español,2026-04-01,2026-04-14
+P091,Duna 5,Ciencia Ficción,170,B15,Subtitulada,2026-04-10,2026-04-30
+P060,Maze Runner 4,Ciencia Ficción,128,B15,Inglés,2026-04-15,2026-04-28
+P118,La Sombra del Pasado,Drama,135,A,Español,2026-04-20,2026-05-05
+P084,Buzz Lightyear 2,Animación,100,AA,Español,2026-05-01,2026-05-14
+P101,El Último Samurái 2,Acción,155,B15,Subtitulada,2026-05-10,2026-05-28
+P069,Transformers 8,Acción,150,B15,Inglés,2026-05-18,2026-06-02
+P059,Super Mario Bros 2,Animación,95,AA,Español,2026-05-25,2026-06-07
+P109,Alien 6,Terror,130,C15,Inglés,2026-06-01,2026-06-15
+P078,El Gato con Botas 2,Animación,100,AA,Español,2026-06-10,2026-06-23
+P095,Missión Imposible 11,Acción,162,B15,Subtitulada,2026-06-18,2026-07-08
+P064,The Hunger Games 5,Acción,145,B15,Inglés,2026-06-25,2026-07-10
+P115,Muerto al Amanecer,Misterio,115,B15,Subtitulada,2026-07-01,2026-07-15
+P082,Brave 2,Animación,105,AA,Español,2026-07-08,2026-07-21
+P107,Ender's Game 2,Ciencia Ficción,140,B15,Inglés,2026-07-15,2026-07-30
+P061,The Conjuring 4,Terror,112,C15,Subtitulada,2026-07-22,2026-08-04
+P093,WALL-E 2,Animación,98,AA,Español,2026-08-01,2026-08-14
+P120,El Código Enigma,Misterio,142,B15,Subtitulada,2026-08-08,2026-08-22
+P070,Mad Max 6,Acción,148,B15,Inglés,2026-08-15,2026-08-30
+P088,Monstruos Inc 3,Animación,100,AA,Español,2026-08-22,2026-09-04
+P102,Gladiator IV,Acción,160,B15,Subtitulada,2026-09-01,2026-09-18
+P066,Toy Story 6,Animación,105,AA,Español,2026-09-08,2026-09-21
+P113,El Corredor del Laberinto,Ciencia Ficción,125,B15,Inglés,2026-09-15,2026-09-28
+P076,Blade Runner 2100,Ciencia Ficción,158,B15,Subtitulada,2026-09-22,2026-10-10
+P096,Shrek 6,Animación,100,AA,Español,2026-10-01,2026-10-14
+P110,Apocalipsis Ahora 2,Drama,165,C15,Subtitulada,2026-10-08,2026-10-28
+P062,Deadpool 4,Acción,130,B15,Inglés,2026-10-15,2026-10-28
+P100,El Detective Sin Nombre,Misterio,120,B15,Subtitulada,2026-10-22,2026-11-05
+P085,Inside Out 4,Animación,102,AA,Español,2026-11-01,2026-11-14
+P090,Titanic 2,Drama,175,A,Español,2026-11-08,2026-11-30
+P071,The Matrix 5,Ciencia Ficción,150,B15,Inglés,2026-11-15,2026-12-02
+P116,El Origen del Miedo,Terror,110,C15,Subtitulada,2026-11-22,2026-12-05
+P079,Minions 5,Animación,90,AA,Español,2026-12-01,2026-12-14
+P105,James Bond 26,Espionaje,145,B15,Inglés,2026-12-08,2026-12-23
+P065,La Bella y la Bestia 3,Animación,108,AA,Español,2026-12-12,2026-12-25
+P098,Elysium 2,Ciencia Ficción,138,B15,Subtitulada,2026-12-15,2026-12-30
+P073,Cars 5,Animación,95,AA,Español,2026-12-18,2026-12-31
+P119,El Último Amanecer,Drama,128,A,Español,2026-12-20,2026-12-31
+P083,La Bruja 3,Terror,115,C15,Subtitulada,2026-01-12,2026-01-25
+P094,Ratatouille 2,Animación,100,AA,Español,2026-01-25,2026-02-07
+P068,X-Men 9,Acción,152,B15,Inglés,2026-02-05,2026-02-22
+P108,El Baile de los Vampiros,Terror,122,C15,Subtitulada,2026-02-12,2026-02-25
+P077,Up 2,Animación,98,AA,Español,2026-02-25,2026-03-10
+P111,La Chispa de la Vida,Drama,130,A,Español,2026-03-05,2026-03-18
+P081,Inception 2,Ciencia Ficción,148,B15,Inglés,2026-03-12,2026-03-28
+P103,Drácula: El Regreso,Terror,125,C15,Subtitulada,2026-03-18,2026-04-01
+P089,How to Train Your Dragon 5,Animación,105,AA,Español,2026-04-05,2026-04-18
+P114,Codigo Rojo,Espionaje,135,B15,Inglés,2026-04-12,2026-04-26
+P086,El Viaje del héroe,Aventura,142,A,Subtitulada,2026-04-22,2026-05-06
+P117,Parásitos 2,Drama,132,A,Español,2026-05-05,2026-05-18
+P074,El Secreto de la Montaña,Aventura,128,A,Subtitulada,2026-05-15,2026-05-28
+P106,Flash Point 2,Acción,140,B15,Inglés,2026-05-22,2026-06-06
+P092,Tangled 2,Animación,102,AA,Español,2026-06-05,2026-06-18

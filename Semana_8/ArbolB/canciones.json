@@ -1,0 +1,52 @@
+[
+    {
+        "codigo": "C01",
+        "nombre": "Animals",
+        "artista": "Martin Garrix"
+    },
+    {
+        "codigo": "C02",
+        "nombre": "Wizard",
+        "artista": "Martin Garrix, Jay Hardway"
+    },
+    {
+        "codigo": "C03",
+        "nombre": "In the Name of Love",
+        "artista": "Martin Garrix, Bebe Rexha"
+    },
+    {
+        "codigo": "C04",
+        "nombre": "Scared to Be Lonely",
+        "artista": "Martin Garrix, Dua Lipa"
+    },
+    {
+        "codigo": "C05",
+        "nombre": "There for You",
+        "artista": "Martin Garrix, Troye Sivan"
+    },
+    {
+        "codigo": "C06",
+        "nombre": "Don't Look Down",
+        "artista": "Martin Garrix, Usher"
+    },
+    {
+        "codigo": "C07",
+        "nombre": "Ocean",
+        "artista": "Martin Garrix, Khalid"
+    },
+    {
+        "codigo": "C08",
+        "nombre": "High on Life",
+        "artista": "Martin Garrix, Bonn"
+    },
+    {
+        "codigo": "C09",
+        "nombre": "Summer Days",
+        "artista": "Martin Garrix, Macklemore, Patrick Stump"
+    },
+    {
+        "codigo": "C10",
+        "nombre": "Tremor",
+        "artista": "Martin Garrix, Dimitri Vegas & Like Mike"
+    }
+]

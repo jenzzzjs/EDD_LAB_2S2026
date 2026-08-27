@@ -112,7 +112,7 @@ std::ostream& operator<<(std::ostream& os, const Pelicula& pelicula) {
 }
 
 // NodoArbolPeliculas es la caja que guarda cada pelicula dentro del arbol
-// Cada nodo apunta a su hijo izquierdo (codigo menor) y a su hijo derecho (codigo mayor)
+// Cada nodo apunta a su hijo izquierdo cuando el codigo es menor y a su hijo derecho cuando es mayor
 class NodoArbolPeliculas {
 private:
     Pelicula pelicula;
@@ -198,7 +198,7 @@ NodoArbolPeliculas* ArbolBinarioDeBusquedaPeliculas::insertarNodo(NodoArbolPelic
     return nodo;
 }
 
-// convierte el codigo en un numero para poder compararlo (P004 = 4, P0018 = 18)
+// convierte el codigo en un numero para poder compararlo, por ejemplo P004 se vuelve 4 y P0018 se vuelve 18
 int ArbolBinarioDeBusquedaPeliculas::numeroCodigo(const std::string& codigo) const {
     std::string digitos;
     // se quedan solo los digitos del codigo
