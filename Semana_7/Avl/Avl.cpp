@@ -2,10 +2,27 @@
 #include <fstream>
 #include <string>
 #include <stdexcept>
-#include <vector>
-#include <cstdlib>
 
 using namespace std;
+
+int maxInt(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+int convertirAEntero(const std::string& s) {
+    int resultado = 0;
+    int i = 0;
+    bool negativo = false;
+    if (!s.empty() && s[0] == '-') {
+        negativo = true;
+        i = 1;
+    }
+    for (; i < s.size(); i++) {
+        if (s[i] < '0' || s[i] > '9') break;
+        resultado = resultado * 10 + (s[i] - '0');
+    }
+    return negativo ? -resultado : resultado;
+}
 
 class Piloto {
 private:
@@ -35,18 +52,21 @@ private:
     Piloto piloto;
     NodoArbolBinarioDeBusquedaPilotos* izq;
     NodoArbolBinarioDeBusquedaPilotos* der;
+    int altura;
 
 public:
     NodoArbolBinarioDeBusquedaPilotos(const Piloto& piloto)
-        : piloto(piloto), izq(nullptr), der(nullptr) {}
+        : piloto(piloto), izq(nullptr), der(nullptr), altura(1) {}
 
     Piloto getPiloto() const { return piloto; }
     NodoArbolBinarioDeBusquedaPilotos* getIzq() const { return izq; }
     NodoArbolBinarioDeBusquedaPilotos* getDer() const { return der; }
+    int getAltura() const { return altura; }
 
     void setPiloto(const Piloto& piloto) { this->piloto = piloto; }
     void setIzq(NodoArbolBinarioDeBusquedaPilotos* izq) { this->izq = izq; }
     void setDer(NodoArbolBinarioDeBusquedaPilotos* der) { this->der = der; }
+    void setAltura(int altura) { this->altura = altura; }
 };
 
 class ArbolBinarioDeBusquedaPilotos {
@@ -54,6 +74,10 @@ private:
     NodoArbolBinarioDeBusquedaPilotos* raiz;
 
     NodoArbolBinarioDeBusquedaPilotos* insertarNodo(NodoArbolBinarioDeBusquedaPilotos* nodo, const Piloto& piloto);
+    int alturaNodo(NodoArbolBinarioDeBusquedaPilotos* nodo);
+    int factorEquilibrio(NodoArbolBinarioDeBusquedaPilotos* nodo);
+    NodoArbolBinarioDeBusquedaPilotos* rotacionDerecha(NodoArbolBinarioDeBusquedaPilotos* nodo);
+    NodoArbolBinarioDeBusquedaPilotos* rotacionIzquierda(NodoArbolBinarioDeBusquedaPilotos* nodo);
     NodoArbolBinarioDeBusquedaPilotos* buscarNodo(NodoArbolBinarioDeBusquedaPilotos* nodo, int horas_de_vuelo);
     void preOrdenAux(NodoArbolBinarioDeBusquedaPilotos* nodo);
     void inOrdenAux(NodoArbolBinarioDeBusquedaPilotos* nodo);
@@ -92,19 +116,81 @@ void ArbolBinarioDeBusquedaPilotos::insertar(const Piloto& piloto) {
     }
 }
 
+int ArbolBinarioDeBusquedaPilotos::alturaNodo(NodoArbolBinarioDeBusquedaPilotos* nodo) {
+    if (nodo == nullptr) {
+        return 0;
+    }
+    return nodo->getAltura();
+}
+
+int ArbolBinarioDeBusquedaPilotos::factorEquilibrio(NodoArbolBinarioDeBusquedaPilotos* nodo) {
+    if (nodo == nullptr) {
+        return 0;
+    }
+    return alturaNodo(nodo->getIzq()) - alturaNodo(nodo->getDer());
+}
+
+NodoArbolBinarioDeBusquedaPilotos* ArbolBinarioDeBusquedaPilotos::rotacionDerecha(NodoArbolBinarioDeBusquedaPilotos* y) {
+    NodoArbolBinarioDeBusquedaPilotos* x = y->getIzq();
+    NodoArbolBinarioDeBusquedaPilotos* T2 = x->getDer();
+
+    x->setDer(y);
+    y->setIzq(T2);
+
+    y->setAltura(maxInt(alturaNodo(y->getIzq()), alturaNodo(y->getDer())) + 1);
+    x->setAltura(maxInt(alturaNodo(x->getIzq()), alturaNodo(x->getDer())) + 1);
+
+    return x;
+}
+
+NodoArbolBinarioDeBusquedaPilotos* ArbolBinarioDeBusquedaPilotos::rotacionIzquierda(NodoArbolBinarioDeBusquedaPilotos* x) {
+    NodoArbolBinarioDeBusquedaPilotos* y = x->getDer();
+    NodoArbolBinarioDeBusquedaPilotos* T2 = y->getIzq();
+
+    y->setIzq(x);
+    x->setDer(T2);
+
+    x->setAltura(maxInt(alturaNodo(x->getIzq()), alturaNodo(x->getDer())) + 1);
+    y->setAltura(maxInt(alturaNodo(y->getIzq()), alturaNodo(y->getDer())) + 1);
+
+    return y;
+}
+
 NodoArbolBinarioDeBusquedaPilotos* ArbolBinarioDeBusquedaPilotos::insertarNodo(NodoArbolBinarioDeBusquedaPilotos* nodo, const Piloto& piloto) {
     if (nodo == nullptr) {
         return new NodoArbolBinarioDeBusquedaPilotos(piloto);
     }
 
-    if (piloto.getHorasDeVuelo() == nodo->getPiloto().getHorasDeVuelo()) {
-        return nodo;
-    }
-    else if (piloto.getHorasDeVuelo() < nodo->getPiloto().getHorasDeVuelo()) {
+    if (piloto.getHorasDeVuelo() < nodo->getPiloto().getHorasDeVuelo()) {
         nodo->setIzq(insertarNodo(nodo->getIzq(), piloto));
     }
-    else {
+    else if (piloto.getHorasDeVuelo() > nodo->getPiloto().getHorasDeVuelo()) {
         nodo->setDer(insertarNodo(nodo->getDer(), piloto));
+    }
+    else {
+        return nodo;
+    }
+
+    nodo->setAltura(maxInt(alturaNodo(nodo->getIzq()), alturaNodo(nodo->getDer())) + 1);
+
+    int balance = factorEquilibrio(nodo);
+
+    if (balance > 1 && piloto.getHorasDeVuelo() < nodo->getIzq()->getPiloto().getHorasDeVuelo()) {
+        return rotacionDerecha(nodo);
+    }
+
+    if (balance < -1 && piloto.getHorasDeVuelo() > nodo->getDer()->getPiloto().getHorasDeVuelo()) {
+        return rotacionIzquierda(nodo);
+    }
+
+    if (balance > 1 && piloto.getHorasDeVuelo() > nodo->getIzq()->getPiloto().getHorasDeVuelo()) {
+        nodo->setIzq(rotacionIzquierda(nodo->getIzq()));
+        return rotacionDerecha(nodo);
+    }
+
+    if (balance < -1 && piloto.getHorasDeVuelo() < nodo->getDer()->getPiloto().getHorasDeVuelo()) {
+        nodo->setDer(rotacionDerecha(nodo->getDer()));
+        return rotacionIzquierda(nodo);
     }
 
     return nodo;
@@ -140,18 +226,21 @@ void ArbolBinarioDeBusquedaPilotos::cargarCSV(const std::string& ruta) {
         }
 
         size_t inicio = 0;
-        std::vector<std::string> campos;
+        std::string nombre, nacionalidad, horasTxt;
+        int campoActual = 0;
         for (size_t i = 0; i <= linea.size(); ++i) {
             if (i == linea.size() || linea[i] == ',') {
-                campos.push_back(quitarComillas(linea.substr(inicio, i - inicio)));
+                std::string campo = quitarComillas(linea.substr(inicio, i - inicio));
+                if (campoActual == 0) nombre = campo;
+                else if (campoActual == 1) nacionalidad = campo;
+                else if (campoActual == 2) horasTxt = campo;
+                campoActual++;
                 inicio = i + 1;
             }
         }
 
-        if (campos.size() >= 3) {
-            std::string nombre = campos[0];
-            std::string nacionalidad = campos[1];
-            int horas_de_vuelo = atoi(campos[2].c_str());
+        if (campoActual >= 3) {
+            int horas_de_vuelo = convertirAEntero(horasTxt);
             insertar(Piloto(nombre, nacionalidad, horas_de_vuelo));
             insertados++;
         }

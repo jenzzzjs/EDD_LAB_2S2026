@@ -46,7 +46,7 @@ El árbol se ordena por las **horas de vuelo**:
 ### Compilar desde Semana_6
 
 ```bash
-cd Semana_6
+cd Semana_7
 g++ Avl/Avl.cpp -o Avl/Avl
 ./Avl/Avl
 ```

@@ -1,11 +1,47 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
-#include <vector>
-#include <limits>
+#include <cstdlib>
 
 using namespace std;
+
+class StringBuilder {
+private:
+    std::string contenido;
+public:
+    StringBuilder() : contenido("") {}
+
+    void agregar(const std::string& texto) {
+        contenido += texto;
+    }
+
+    void agregar(int numero) {
+        contenido += std::to_string(numero);
+    }
+
+    void agregar(void* puntero) {
+        if (puntero == nullptr) {
+            contenido += "0";
+        }
+        else {
+            char buffer[32];
+            std::snprintf(buffer, sizeof(buffer), "%p", puntero);
+            std::string hexStr(buffer);
+            std::string limpio = "Nodo";
+            for (size_t i = 0; i < hexStr.size(); ++i) {
+                char c = hexStr[i];
+                if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
+                    limpio += c;
+                }
+            }
+            contenido += limpio;
+        }
+    }
+
+    std::string str() const {
+        return contenido;
+    }
+};
 
 class Cancion {
 private:
@@ -156,7 +192,7 @@ private:
     void fusionarHijos(NodoArbolB* nodo, int idx);
     void destruirNodo(NodoArbolB* nodo);
     std::string obtenerDot();
-    void graficarNodo(std::stringstream& ss, NodoArbolB* nodo, int& nullCount);
+    void graficarNodo(StringBuilder& ss, NodoArbolB* nodo, int& nullCount);
 };
 
 ArbolBCanciones::ArbolBCanciones(int m) : raiz(new NodoArbolB(m)), m(m) {}
@@ -431,27 +467,44 @@ void ArbolBCanciones::destruirNodo(NodoArbolB* nodo) {
     }
 }
 
-void ArbolBCanciones::graficarNodo(std::stringstream& ss, NodoArbolB* nodo, int& nullCount) {
+void ArbolBCanciones::graficarNodo(StringBuilder& ss, NodoArbolB* nodo, int& nullCount) {
     if (!nodo) return;
 
-    ss << "Nodo" << nodo << " [shape=record, label=\"";
+    ss.agregar("Nodo");
+    ss.agregar(nodo);
+    ss.agregar(" [shape=record, label=\"");
     for (int i = 0; i < nodo->clavesUsadas; ++i) {
-        ss << "<f" << i << "> " << nodo->clave[i].getCodigo() << " - " << nodo->clave[i].getNombre();
+        ss.agregar("<f");
+        ss.agregar(i);
+        ss.agregar("> ");
+        ss.agregar(nodo->clave[i].getCodigo());
+        ss.agregar(" - ");
+        ss.agregar(nodo->clave[i].getNombre());
         if (i < nodo->clavesUsadas - 1) {
-            ss << " | ";
+            ss.agregar(" | ");
         }
     }
-    ss << "\"];\n";
+    ss.agregar("\"];\n");
 
     if (!nodo->esHoja()) {
         for (int i = 0; i <= nodo->clavesUsadas; ++i) {
             if (nodo->puntero[i]) {
-                ss << "Nodo" << nodo << " -> Nodo" << nodo->puntero[i] << ";\n";
+                ss.agregar("Nodo");
+                ss.agregar(nodo);
+                ss.agregar(" -> Nodo");
+                ss.agregar(nodo->puntero[i]);
+                ss.agregar(";\n");
                 graficarNodo(ss, nodo->puntero[i], nullCount);
             }
             else {
-                ss << "Nodo" << nodo << " -> null" << nullCount << ";\n";
-                ss << "null" << nullCount << " [shape=point];\n";
+                ss.agregar("Nodo");
+                ss.agregar(nodo);
+                ss.agregar(" -> null");
+                ss.agregar(nullCount);
+                ss.agregar(";\n");
+                ss.agregar("null");
+                ss.agregar(nullCount);
+                ss.agregar(" [shape=point];\n");
                 nullCount++;
             }
         }
@@ -459,16 +512,16 @@ void ArbolBCanciones::graficarNodo(std::stringstream& ss, NodoArbolB* nodo, int&
 }
 
 std::string ArbolBCanciones::obtenerDot() {
-    std::stringstream ss;
-    ss << "digraph ArbolBCanciones {\n";
-    ss << "bgcolor=lightblue;\n";
-    ss << "node [shape=box, style=filled, fillcolor=beige, color=black, penwidth=2];\n";
-    ss << "edge [splines=polyline, arrowhead=curve];\n";
+    StringBuilder ss;
+    ss.agregar("digraph ArbolBCanciones {\n");
+    ss.agregar("bgcolor=lightblue;\n");
+    ss.agregar("node [shape=box, style=filled, fillcolor=beige, color=black, penwidth=2];\n");
+    ss.agregar("edge [splines=polyline, arrowhead=curve];\n");
     if (raiz) {
         int nullCount = 0;
         graficarNodo(ss, raiz, nullCount);
     }
-    ss << "}\n";
+    ss.agregar("}\n");
     return ss.str();
 }
 
@@ -545,11 +598,15 @@ bool cargarJSON(const std::string& ruta, ArbolBCanciones& arbol) {
         return false;
     }
 
-    std::stringstream buffer;
-    buffer << archivo.rdbuf();
+    std::string texto;
+    {
+        char c;
+        while (archivo.get(c)) {
+            texto += c;
+        }
+    }
     archivo.close();
-
-    std::string texto = quitarBOM(buffer.str());
+    texto = quitarBOM(texto);
     size_t pos = 0;
     int insertados = 0;
 
@@ -667,19 +724,22 @@ bool cargarCSV(const std::string& ruta, ArbolBCanciones& arbol) {
         }
 
         size_t inicio = 0;
-        std::vector<std::string> campos;
+        std::string campos[50];
+        int numCampos = 0;
         for (size_t i = 0; i <= linea.size(); ++i) {
             if (i == linea.size() || linea[i] == ',') {
-                campos.push_back(quitarComillas(linea.substr(inicio, i - inicio)));
+                if (numCampos < 50) {
+                    campos[numCampos++] = quitarComillas(linea.substr(inicio, i - inicio));
+                }
                 inicio = i + 1;
             }
         }
 
-        if (campos.size() >= 3) {
+        if (numCampos >= 3) {
             std::string codigo = campos[0];
             std::string nombre = campos[1];
             std::string artista = campos[2];
-            for (size_t i = 3; i < campos.size(); ++i) {
+            for (int i = 3; i < numCampos; ++i) {
                 artista += "," + campos[i];
             }
 
@@ -716,7 +776,7 @@ int main() {
         std::cout << "6. Salir" << std::endl;
         std::cout << "Ingrese una opcion: ";
         std::cin >> opcion;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.ignore(999999, '\n');
 
         switch (opcion) {
         case 1: {
