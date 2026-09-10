@@ -1,7 +1,3 @@
-// ARBOL AVL DE PILOTOS
-// Guarda pilotos (nombre, nacionalidad, horas de vuelo) y los ordena
-// por horas de vuelo como es un AVL se auto-equilibra para que la
-// altura siempre sea la menor posible y las busquedas sean rapidas
 
 #include <iostream>
 #include <fstream>
@@ -690,12 +686,41 @@ int main() {
             arbol.cargarCSV(ruta);
             break;
         }
-        case 3:
-            // opcion 3 para ver los pilotos en orden de menor a mayor
-            // horas de vuelo usando el recorrido in-orden
-            std::cout << "===== PILOTOS (IN ORDEN) =====" << std::endl;
-            arbol.inOrden();
+        case 3: {
+            // opcion 3 para ver los pilotos y le pedimos al usuario que
+            // elija el tipo de recorrido que quiere ver y segun el numero
+            // que escriba usamos pre-orden in-orden o post-orden
+            int tipoRecorrido;
+            std::cout << "===== VER PILOTOS =====" << std::endl;
+            std::cout << "Elija el recorrido:" << std::endl;
+            std::cout << "1. Pre-orden" << std::endl;
+            std::cout << "2. In-orden" << std::endl;
+            std::cout << "3. Post-orden" << std::endl;
+            std::cout << "Ingrese una opcion (1-3): ";
+            std::cin >> tipoRecorrido;
+            std::cin.ignore();
+
+            // segun el numero elegido mostramos los pilotos con el
+            // recorrido que corresponda y si no es valido avisamos
+            switch (tipoRecorrido) {
+            case 1:
+                std::cout << "===== PILOTOS (PRE ORDEN) =====" << std::endl;
+                arbol.preOrden();
+                break;
+            case 2:
+                std::cout << "===== PILOTOS (IN ORDEN) =====" << std::endl;
+                arbol.inOrden();
+                break;
+            case 3:
+                std::cout << "===== PILOTOS (POST ORDEN) =====" << std::endl;
+                arbol.postOrden();
+                break;
+            default:
+                std::cout << "Opcion no valida." << std::endl;
+                break;
+            }
             break;
+        }
         case 4:
             // opcion 4 para generar el reporte grafico del arbol
             arbol.generarDot();
