@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-fixed-dim":"#00daf3","on-secondary-fixed-variant":"#004f58","on-primary-fixed":"#001a42","error":"#ffb4ab","on-primary":"#002e6a","surface-container-low":"#171b26","on-surface":"#dfe2f1","error-container":"#93000a","surface-container-lowest":"#0a0e18","on-background":"#dfe2f1","tertiary-fixed":"#d4e3ff","surface-tint":"#adc6ff","on-primary-fixed-variant":"#004395","inverse-primary":"#005ac2","primary-container":"#4d8eff","secondary-fixed":"#9cf0ff","on-primary-container":"#00285d","outline":"#8c909f","surface-variant":"#313540","on-secondary":"#00363d","on-surface-variant":"#c2c6d6","outline-variant":"#424754","tertiary-fixed-dim":"#a4c9ff","primary-fixed-dim":"#adc6ff","on-error":"#690005","secondary-container":"#00e3fd","secondary":"#bdf4ff","on-tertiary-container":"#002a51","on-tertiary-fixed":"#001c39","surface-container-high":"#262a35","on-tertiary-fixed-variant":"#004883","on-secondary-container":"#00616d","surface-container":"#1c1f2a","on-tertiary":"#00315d","background":"#0f131d","on-error-container":"#ffdad6","primary-fixed":"#d8e2ff","surface-bright":"#353944","primary":"#adc6ff","tertiary":"#a4c9ff","surface":"#0f131d","inverse-on-surface":"#2c303b","inverse-surface":"#dfe2f1","on-secondary-fixed":"#001f24","surface-container-highest":"#313540","surface-dim":"#0f131d","tertiary-container":"#4c93e7"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-mobile":"1rem","space-xl":"2.5rem","margin-mobile":"1rem","margin":"2rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter":"1.5rem","space-md":"1rem","space-xs":"0.25rem"},fontFamily:{"display-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"]},fontSize:{"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"800"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"800"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-20 w-full px-gutter flex items-center justify-between max-w-7xl mx-auto"><div class="flex items-center gap-space-sm"><img alt="AuraBeat Music Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XCt-yjbIHxEo1cr6GfCC9I1X8HtUp2m4G3psZSzr6nZ3YcafPtb13QsI1bM2mkxDZUcuxc6cxYVaxr1xvulCm4R1ywUxVePKawzDGJc4iXFH85mK6FEDUUkTTdXEjwHc6GwyvBvAhsw0Vq3cW_gAoCKzDjNL8bNCr2cKGdzR7JNgkfqrI2GRWUwDqj0OajMiYZXhez9pR2q3GMpbH0E-J5jo1HyDdtZr6KtWvB5WPcPhwsM9d8iH4hKKY"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">AuraBeat</span></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="descubrir" href="#">Descubrir</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="caracteristicas" href="#">Características</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="planes" href="#">Planes</a></nav><div class="flex items-center gap-space-md"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors px-space-md py-space-sm" data-path="login" href="#">Iniciar Sesión</a><a class="font-label-lg text-label-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary px-space-lg py-space-sm rounded-full transition-all shadow-[0_0_20px_rgba(0,229,255,0.25)]" data-path="registro" href="#">Probar Gratis</a><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNiupb8igA3T_ACcFD_e2rUoz_uRB0lyT6VAyCtpcNE4O5-cvH6euYCmKPsO_rNWvutWb8xOPf2CxrPQhYQNpGku0J3YVBbRhOI3xs_l9he4piFn6AASbiA_Kc48-bOYGfqvQoLa9txaIsfj4p7p3ZdNHaMgJB2zviDhg_vWSQ9mU9-qp4HcEdXIW7qa19GaesscFcMkYfXLI5_iICPxe-D6B1BIKQiSivfv99ck0YV5ooJg_8kmNSA"/></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-160px)]"><div class="flex flex-col w-full overflow-hidden">
+<!-- Hero Section -->
+<section class="relative w-full px-gutter py-space-xl lg:py-24 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-space-xl">
+<!-- Atmospheric Ambient Glows -->
+<div class="absolute -top-24 left-1/4 w-96 h-96 bg-primary-container/20 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="absolute top-1/2 right-10 w-80 h-80 bg-secondary-fixed-dim/15 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<!-- Text Content -->
+<div class="w-full lg:w-7/12 flex flex-col items-start space-y-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high/60 backdrop-blur-md shadow-inner">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed">Master Quality Authenticated</span>
+<span class="font-label-sm text-label-sm text-outline px-1.5 py-0.5 rounded bg-surface-container-lowest">24-bit / 192kHz</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight leading-none">
+        Siente cada frecuencia en <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary-fixed-dim via-primary-container to-secondary">alta fidelidad</span> sin límites
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+        Experimenta una acústica tridimensional envolvente con compresión FLAC sin pérdidas pura, optimizada en tiempo real mediante algoritmos neuronales adaptados a tu percepción sonora única.
+      </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm w-full sm:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm px-space-xl py-space-md rounded-full bg-gradient-to-r from-primary-container to-secondary-fixed-dim text-on-primary-container font-label-lg text-label-lg shadow-[0_0_30px_rgba(0,218,243,0.35)] hover:shadow-[0_0_40px_rgba(0,218,243,0.55)] transition-all transform hover:-translate-y-0.5" href="#planes">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Comenzar 30 días gratis</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm px-space-lg py-space-md rounded-full bg-surface-container/70 backdrop-blur-xl hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg shadow-md transition-all" href="#caracteristicas">
+<span class="material-symbols-outlined text-[20px]">graphic_eq</span>
+<span>Explorar catálogo</span>
+</a>
+</div>
+<!-- Quick Social Proof / Hi-Res Specs -->
+<div class="pt-space-md flex items-center gap-space-lg text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span>FLAC Lossless Nativo</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">spatial_audio</span>
+<span>Dolby Atmos Spatial 3D</span>
+</div>
+</div>
+</div>
+<!-- Interactive Visual Audio Stage -->
+<div class="w-full lg:w-5/12 flex justify-center lg:justify-end relative">
+<!-- Glow Underlay -->
+<div class="absolute inset-0 bg-primary-container/10 rounded-3xl blur-2xl transform scale-95 -z-10"></div>
+<!-- Main Deck Showcase Container -->
+<div class="w-full max-w-md bg-surface-container-low/80 backdrop-blur-2xl rounded-3xl p-space-lg shadow-2xl flex flex-col space-y-space-lg">
+<!-- Top Status Bar of Player -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[20px]">hearing</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">DSP Studio Stage</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-secondary-fixed">MQA DIRECT</span>
+</div>
+<!-- Simulated Neomorphic Real-time Visualizer -->
+<div class="h-32 w-full bg-surface-container-lowest/90 rounded-2xl p-space-md flex items-end justify-between gap-1.5 shadow-inner relative overflow-hidden">
+<div class="absolute top-2 left-3 font-label-sm text-label-sm text-outline/50 uppercase">Spectrum Output</div>
+<!-- Visualizer Bars -->
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[45%] animate-[pulse_1.2s_ease-in-out_infinite]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[75%] animate-[pulse_0.9s_ease-in-out_infinite_0.1s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[92%] animate-[pulse_1.1s_ease-in-out_infinite_0.3s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[60%] animate-[pulse_0.8s_ease-in-out_infinite_0.2s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[30%] animate-[pulse_1.4s_ease-in-out_infinite_0.4s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[82%] animate-[pulse_1.0s_ease-in-out_infinite_0.25s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[98%] animate-[pulse_1.3s_ease-in-out_infinite_0.15s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[55%] animate-[pulse_0.7s_ease-in-out_infinite_0.35s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[40%] animate-[pulse_1.1s_ease-in-out_infinite_0.05s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[70%] animate-[pulse_0.95s_ease-in-out_infinite_0.2s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[88%] animate-[pulse_1.25s_ease-in-out_infinite_0.3s]"></div>
+<div class="w-full bg-gradient-to-t from-primary-container to-secondary-fixed-dim rounded-t h-[50%] animate-[pulse_1.05s_ease-in-out_infinite_0.1s]"></div>
+</div>
+<!-- Floating Track Card in Playback -->
+<div class="bg-surface-container/90 rounded-2xl p-space-md shadow-xl flex flex-col space-y-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 shadow-md">
+<img class="w-full h-full object-cover" data-alt="Cyberpunk futuristic album art titled Neon Horizon with vibrant cyan and electric blue light trails against midnight obsidian backdrop cinematic studio music render" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClQb2Vv_XStBtPD3LlKdYlB2mFaE2Y_uGRNQTDrCGY1v5-VyLADTM_hefwiZgVoBcRWBlwQo4T7IXZ4UFrun7wWVO7VSgPdxwgSsR3EIil8D4BlY5NkvMKTj4X_E-dW6OJZwPJ1tKPEtaKXR61V8LBNFZo99jKlcuBRIzZSmCRMgT3ePSZ724CsrIEGp4zbCZWrVaRX4vgERXH-SaQwDurdmZQr9IAsGWHcX7V5dwxr0s9pswljY50pA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/60 to-transparent"></div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Neon Horizon</span>
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[20px] animate-bounce" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Cyber Aura • Spatial Resonance Remaster</p>
+<div class="mt-1 flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary">FLAC 24/96</span>
+<span class="font-label-sm text-label-sm text-outline">Binaural 3D</span>
+</div>
+</div>
+</div>
+<!-- Progress Bar & Time -->
+<div class="space-y-1">
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden flex items-center">
+<div class="h-full bg-secondary-fixed-dim w-3/5 rounded-full shadow-[0_0_10px_rgba(0,218,243,0.8)]"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>02:14</span>
+<span>03:48</span>
+</div>
+</div>
+<!-- Quick Deck Controls -->
+<div class="flex items-center justify-between pt-1">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]">shuffle</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[26px]">skip_previous</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-gradient-to-br from-secondary-fixed-dim to-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(0,218,243,0.4)] hover:scale-105 transition-transform" id="heroPlayToggle">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[26px]">skip_next</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Metrics Banner -->
+<section class="w-full bg-surface-container-low/70 py-space-lg shadow-lg">
+<div class="max-w-7xl mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 gap-space-lg text-center">
+<div class="flex flex-col items-center justify-center p-space-sm">
+<span class="font-display-lg text-headline-lg lg:text-display-lg text-secondary-fixed-dim font-bold tracking-tight">50M+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Canciones en Hi-Res</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-sm">
+<span class="font-display-lg text-headline-lg lg:text-display-lg text-on-surface font-bold tracking-tight">FLAC 24b</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">320kbps &amp; Lossless Puro</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-sm">
+<span class="font-display-lg text-headline-lg lg:text-display-lg text-primary font-bold tracking-tight">12M+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Audiófilos Activos</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-sm">
+<span class="font-display-lg text-headline-lg lg:text-display-lg text-secondary-fixed font-bold tracking-tight">0</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Interrupciones o Anuncios</span>
+</div>
+</div>
+</section>
+<!-- Key Features Grid -->
+<section class="w-full py-space-xl max-w-7xl mx-auto px-gutter space-y-space-xl" id="caracteristicas">
+<div class="flex flex-col items-center text-center space-y-space-xs max-w-2xl mx-auto">
+<span class="font-label-md text-label-md uppercase tracking-widest text-secondary-fixed-dim">Tecnología Acústica</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Diseñado para los oídos más exigentes</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">La convergencia perfecta entre pureza de señal analógica y algoritmos digitales de última generación.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Feature 1: Audio Espacial -->
+<div class="bg-surface-container/60 hover:bg-surface-container/90 transition-all rounded-3xl p-space-xl shadow-xl flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-secondary-fixed-dim shadow-inner group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">surround_sound</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Audio Espacial &amp; Hi-Fi Lossless</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Sumérgete en un escenario sonoro esférico 360°. Nuestro motor procesa canales de audio con codificación binaural directa, recreando la física y reverberación exacta de los estudios de masterización originales.
+            </p>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest/50 rounded-2xl p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+<span>Decodificación MQA &amp; Direct DSD</span>
+</div>
+<span class="font-label-md text-label-md text-secondary-fixed">Hasta 9216 kbps</span>
+</div>
+</div>
+<!-- Feature 2: Algoritmo Smart Flow -->
+<div class="bg-surface-container/60 hover:bg-surface-container/90 transition-all rounded-3xl p-space-xl shadow-xl flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary-container shadow-inner group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">neurology</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Algoritmo Smart Flow Neuronal</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Descubrimiento musical hiperpersonalizado. La IA predictiva analiza tus ritmos circadianos, curvas de atención y armónicos predilectos para forjar flujos infinitos de reproducción sin transiciones bruscas.
+            </p>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest/50 rounded-2xl p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Crossfade Armónico Zero-Latency</span>
+</div>
+<span class="font-label-md text-label-md text-primary-fixed">Mood Adaptation</span>
+</div>
+</div>
+<!-- Feature 3: Modo Desconectado Ilimitado -->
+<div class="bg-surface-container/60 hover:bg-surface-container/90 transition-all rounded-3xl p-space-xl shadow-xl flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-tertiary shadow-inner group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">cloud_off</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Modo Desconectado Ilimitado</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Descarga álbumes y colecciones enteras preservando la integridad del audio bit-a-bit en tu almacenamiento local. Lleva la fidelidad de referencia dondequiera que viajes, incluso en modo avión.
+            </p>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest/50 rounded-2xl p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span>Caché cifrada AES-256</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary-fixed">Cero pérdida</span>
+</div>
+</div>
+<!-- Feature 4: Sesiones en Vivo y Colaborativas -->
+<div class="bg-surface-container/60 hover:bg-surface-container/90 transition-all rounded-3xl p-space-xl shadow-xl flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-secondary-fixed shadow-inner group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">groups</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Sesiones en Vivo &amp; Colaborativas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Crea salas de escucha sincronizada al milisegundo con amigos y audiocreadores de todo el mundo. Comenta pistas en tiempo real, aporta a la cola compartida y experimenta la música al unísono.
+            </p>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest/50 rounded-2xl p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+<span>Sincronía P2P Ultrarrápida</span>
+</div>
+<span class="font-label-md text-label-md text-secondary-fixed">Aura Party Rooms</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Demo Playlist Preview -->
+<section class="w-full py-space-lg bg-surface-container-lowest/80">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col space-y-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-widest text-secondary-fixed-dim">Catálogo de prueba</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Master Clásicos &amp; Tendencias Espaciales</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">Todos</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">Electrónica 3D</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">Jazz Acústico</button>
+</div>
+</div>
+<!-- Playlist Table -->
+<div class="w-full bg-surface-container-low/90 rounded-2xl p-space-sm shadow-xl space-y-1">
+<!-- Row 1 (Playing) -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-high/60 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-8 flex items-center justify-center text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</div>
+<div class="w-11 h-11 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Cyberpunk glowing neon synthesizer and night city reflections album cover for digital audio high resolution track" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgPct3UXZ6fmEv1VFJjbT6HQbteBjs3pvAWoaXgAjuaERD-R9kePagb6kwgLdp9fgKqqZGq0DaqlUmFX9Htq5A7IHb9E4zckZpRLFw5lR5in4ABRPKAYcKEgmwGt9oy1q3GZs0ITWRUmpouBDHCAoY9snUkjsJ9-iAw4CACiM8a6-yLgAz2SORoWImulDp48IOEL8iIW2rwCZ2YBzTB2DAQ7K87fr9zCBVqhxBrPkAOwqtySL9B4AVfA"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-secondary-fixed-dim font-bold truncate">Neon Horizon</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Cyber Aura • Binaural Sessions</span>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-lowest text-secondary-fixed">MQA 24-bit</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant">03:48</span>
+<button class="text-on-surface-variant hover:text-secondary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center justify-between p-space-md rounded-xl hover:bg-surface-container-high/40 transition-colors cursor-pointer group">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-8 flex items-center justify-center text-on-surface-variant font-label-md text-label-md group-hover:hidden">02</div>
+<div class="w-8 hidden items-center justify-center text-on-surface group-hover:flex">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</div>
+<div class="w-11 h-11 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Deep blue cinematic night ocean waves under moonlight acoustic music cover art atmospheric minimalist dark tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1W8tp71jzpBXLK7cdSg8eTwLqo5osGFzujQUUsZZzDUJSwX1u2z617sOQAk1Q94fcf6Z3qKNhaBCWfmfoqj-5AFAsgBOGfhOEE9kgpWDyvrtgLDMheDJxz2jm-CVuXEjb9Ly2me7eLd9B8gyopOVmkoDxfj9-WgR7R6nWRlEvDe0aVwdPx9CyCJtjyuGuSZFMNwqoNvRvhNSe52i-aa7-0W9-fjOVp2i2Suzj3Vl-4_-8nmGUE0lDNA"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Tidal Continuum</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Elysian Waves</span>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-lowest text-outline">FLAC 96kHz</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant">05:12</span>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center justify-between p-space-md rounded-xl hover:bg-surface-container-high/40 transition-colors cursor-pointer group">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-8 flex items-center justify-center text-on-surface-variant font-label-md text-label-md group-hover:hidden">03</div>
+<div class="w-8 hidden items-center justify-center text-on-surface group-hover:flex">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</div>
+<div class="w-11 h-11 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Modern acoustic grand piano in dark ambient jazz hall with blue stage rim lighting and glossy floor reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS1zGoXSwe-v1TjbNnwBLfAnarX_oxcTfpZeodHJpNYNpnPmO0KYPH3s17uOee3ERzT59pHlSEn7ZOXGW4by8GvqeBmwnWi-NyY_EDLlEEqvJFv9sbgvy3X4KxpODYXDf1i_zFUYA1oz5-h34MuO3XTVtOvbL9Tcw3adDODWJENyKoqt_myeiHIedA1Dn9pC03AdHIOZALRQbse5y322A0IcxaCcxHslxCELOwv3hHdLJVoP6A8yScXw"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Midnight Improvisations</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Soren Trio • Master Sessions</span>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-lowest text-secondary-fixed">DSD 11.2MHz</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant">04:30</span>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Subscription Plans Section -->
+<section class="w-full py-space-xl max-w-7xl mx-auto px-gutter space-y-space-xl" id="planes">
+<div class="flex flex-col items-center text-center space-y-space-xs max-w-2xl mx-auto">
+<span class="font-label-md text-label-md uppercase tracking-widest text-secondary-fixed-dim">Suscripciones Flexibles</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Tu boleto a la fidelidad absoluta</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Sin contratos forzosos. Cancela en cualquier momento con un solo toque desde tu cuenta.</p>
+</div>
+<!-- Pricing Cards Container -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg items-stretch">
+<!-- Plan 1: Individual -->
+<div class="bg-surface-container/70 rounded-3xl p-space-xl flex flex-col justify-between shadow-lg hover:shadow-2xl transition-all">
+<div class="space-y-space-md">
+<div class="space-y-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Plan Básico</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Individual</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Para oyentes individuales que exigen calidad superior al estándar comercial.</p>
+</div>
+<div class="flex items-baseline gap-1 py-space-sm">
+<span class="font-display-lg text-display-lg text-on-surface font-extrabold">$9.99</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/ mes</span>
+</div>
+<div class="w-full h-px bg-surface-container-high my-space-sm"></div>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>1 cuenta de usuario verificada</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Audio HD 320kbps + FLAC 16-bit</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Descargas offline en hasta 3 dispositivos</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Cero anuncios en toda la plataforma</span>
+</li>
+</ul>
+</div>
+<div class="pt-space-lg">
+<a class="w-full inline-flex items-center justify-center py-space-md px-space-lg rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-lg text-label-lg transition-colors" href="#">
+            Elegir Individual
+          </a>
+</div>
+</div>
+<!-- Plan 2: Familiar / Pro (Highlighted) -->
+<div class="bg-surface-container-low/95 rounded-3xl p-space-xl flex flex-col justify-between shadow-[0_0_35px_rgba(0,218,243,0.25)] relative transform lg:-translate-y-4">
+<!-- Top Badge -->
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-space-md py-0.5 rounded-full bg-gradient-to-r from-primary-container to-secondary-fixed-dim text-on-primary-container font-label-sm text-label-sm uppercase tracking-wider font-bold shadow-md">
+          Más Popular • Experiencia Completa
+        </div>
+<div class="space-y-space-md pt-space-xs">
+<div class="space-y-space-xs">
+<span class="font-label-md text-label-md text-secondary-fixed-dim uppercase tracking-wider">Máxima Pureza</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Familiar / Pro</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">El pináculo del streaming para hogares audiófilos y equipos de producción.</p>
+</div>
+<div class="flex items-baseline gap-1 py-space-sm">
+<span class="font-display-lg text-display-lg text-secondary-fixed-dim font-extrabold">$19.99</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/ mes</span>
+</div>
+<div class="w-full h-px bg-surface-container-high my-space-sm"></div>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">verified</span>
+<span class="font-semibold text-secondary-fixed">Hasta 6 cuentas independientes</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">verified</span>
+<span>Audio Hi-Res FLAC 24-bit / 192kHz y MQA</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">verified</span>
+<span>Audio Espacial 3D Dolby Atmos sin límite</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">verified</span>
+<span>Descargas ilimitadas en cualquier dispositivo</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">verified</span>
+<span>Control parental y playlist familiar compartida</span>
+</li>
+</ul>
+</div>
+<div class="pt-space-lg">
+<a class="w-full inline-flex items-center justify-center py-space-md px-space-lg rounded-full bg-gradient-to-r from-primary-container to-secondary-fixed-dim hover:from-primary hover:to-secondary text-on-primary-container font-label-lg text-label-lg shadow-[0_0_25px_rgba(0,218,243,0.4)] transition-all" href="#">
+            Comenzar Prueba Pro Gratis
+          </a>
+</div>
+</div>
+<!-- Plan 3: Duo / Parejas -->
+<div class="bg-surface-container/70 rounded-3xl p-space-xl flex flex-col justify-between shadow-lg hover:shadow-2xl transition-all">
+<div class="space-y-space-md">
+<div class="space-y-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Para Dos</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Duo / Parejas</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sintonía perfecta para compañeros de vida o amigos con gustos entrelazados.</p>
+</div>
+<div class="flex items-baseline gap-1 py-space-sm">
+<span class="font-display-lg text-display-lg text-on-surface font-extrabold">$14.99</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/ mes</span>
+</div>
+<div class="w-full h-px bg-surface-container-high my-space-sm"></div>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>2 cuentas Premium individuales</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Playlist compartida dinámica 'Aura Mix Duo'</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Audio Hi-Res FLAC 24-bit</span>
+</li>
+<li class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Descargas ilimitadas por cuenta</span>
+</li>
+</ul>
+</div>
+<div class="pt-space-lg">
+<a class="w-full inline-flex items-center justify-center py-space-md px-space-lg rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-lg text-label-lg transition-colors" href="#">
+            Elegir Duo
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials & Artist Endorsements -->
+<section class="w-full py-space-xl bg-surface-container-low/50">
+<div class="max-w-7xl mx-auto px-gutter space-y-space-xl">
+<div class="flex flex-col items-center text-center space-y-space-xs max-w-xl mx-auto">
+<span class="font-label-md text-label-md uppercase tracking-widest text-secondary-fixed-dim">Aval de la Industria</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Lo que dicen los creadores</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container/60 rounded-2xl p-space-lg shadow-lg flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">
+              "Como productor de mezclas orquestales, jamás creí que una plataforma comercial pudiera respetar la dinámica y el 'headroom' de un master de 24 bits. AuraBeat lo logra con fidelidad quirúrgica."
+            </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<img alt="Mateo Valenzuela" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNiupb8igA3T_ACcFD_e2rUoz_uRB0lyT6VAyCtpcNE4O5-cvH6euYCmKPsO_rNWvutWb8xOPf2CxrPQhYQNpGku0J3YVBbRhOI3xs_l9he4piFn6AASbiA_Kc48-bOYGfqvQoLa9txaIsfj4p7p3ZdNHaMgJB2zviDhg_vWSQ9mU9-qp4HcEdXIW7qa19GaesscFcMkYfXLI5_iICPxe-D6B1BIKQiSivfv99ck0YV5ooJg_8kmNSA"/>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Mateo Valenzuela</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ingeniero de Masterización Ganador del Grammy</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container/60 rounded-2xl p-space-lg shadow-lg flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">
+              "El algoritmo Smart Flow es aterradoramente acertado. Detecta matices de timbre y tonalidad que ningún otro servicio comprende. Descubrí más artistas en dos semanas que en todo el año pasado."
+            </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-headline-sm text-headline-sm">
+              S
+            </div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Sofía Danvers</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Curadora &amp; Compositora Electrónica</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-container/60 rounded-2xl p-space-lg shadow-lg flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">
+              "La función de escuchar sincronizados en tiempo real mediante Party Rooms salvó nuestras sesiones remotas de composición. Cero latencia y la calidad nunca se degrada."
+            </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-secondary font-headline-sm text-headline-sm">
+              L
+            </div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Lucas Reinhardt</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Director Musical en SynthLab</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Callout Banner -->
+<section class="w-full py-space-xl px-gutter max-w-7xl mx-auto">
+<div class="relative w-full rounded-3xl bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest p-space-xl lg:p-20 overflow-hidden shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-space-xl">
+<!-- Glow ambient elements inside -->
+<div class="absolute -right-10 -bottom-10 w-96 h-96 bg-primary-container/25 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute -left-10 -top-10 w-80 h-80 bg-secondary-fixed-dim/20 rounded-full blur-[90px] pointer-events-none"></div>
+<div class="relative z-10 max-w-2xl space-y-space-md text-center lg:text-left">
+<span class="font-label-md text-label-md uppercase tracking-widest text-secondary-fixed">Comienza tu viaje acústico</span>
+<h2 class="font-display-lg text-headline-lg lg:text-display-lg text-on-surface tracking-tight leading-tight">
+          Redescubre tus canciones favoritas como fueron concebidas.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Pruébalo durante un mes entero sin costo. Si no notas la diferencia acústica desde el primer segundo, cancela con un solo clic.
+        </p>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row items-center gap-space-md w-full lg:w-auto shrink-0">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm px-space-xl py-space-md rounded-full bg-gradient-to-r from-secondary-fixed-dim to-primary-container text-on-primary-container font-label-lg text-label-lg shadow-[0_0_30px_rgba(0,218,243,0.4)] hover:shadow-[0_0_40px_rgba(0,218,243,0.6)] transition-all" href="#planes">
+<span>Probar 30 Días Gratis</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Simple micro-interaction for play/pause toggle in hero deck
+  const heroBtn = document.getElementById('heroPlayToggle');
+  if (heroBtn) {
+    let isPlaying = true;
+    heroBtn.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      const icon = heroBtn.querySelector('.material-symbols-outlined');
+      if (icon) {
+        icon.textContent = isPlaying ? 'pause' : 'play_arrow';
+      }
+    });
+  }
+</script></main><footer class="w-full bg-surface-container-lowest py-space-xl"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-sm"><img alt="AuraBeat Music Logo" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/AEtjO1XCt-yjbIHxEo1cr6GfCC9I1X8HtUp2m4G3psZSzr6nZ3YcafPtb13QsI1bM2mkxDZUcuxc6cxYVaxr1xvulCm4R1ywUxVePKawzDGJc4iXFH85mK6FEDUUkTTdXEjwHc6GwyvBvAhsw0Vq3cW_gAoCKzDjNL8bNCr2cKGdzR7JNgkfqrI2GRWUwDqj0OajMiYZXhez9pR2q3GMpbH0E-J5jo1HyDdtZr6KtWvB5WPcPhwsM9d8iH4hKKY"/><span class="font-headline-sm text-headline-sm text-on-surface">AuraBeat</span><span class="ml-space-sm">© 2024 AuraBeat Audio Inc. Todos los derechos reservados.</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Términos</a><a class="hover:text-on-surface transition-colors" href="#">Privacidad</a><a class="hover:text-on-surface transition-colors" href="#">Soporte Audiófilo</a></div></div></footer></body></html>

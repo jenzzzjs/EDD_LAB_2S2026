@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-fixed-dim":"#00daf3","on-secondary-fixed-variant":"#004f58","on-primary-fixed":"#001a42","error":"#ffb4ab","on-primary":"#002e6a","surface-container-low":"#171b26","on-surface":"#dfe2f1","error-container":"#93000a","surface-container-lowest":"#0a0e18","on-background":"#dfe2f1","tertiary-fixed":"#d4e3ff","surface-tint":"#adc6ff","on-primary-fixed-variant":"#004395","inverse-primary":"#005ac2","primary-container":"#4d8eff","secondary-fixed":"#9cf0ff","on-primary-container":"#00285d","outline":"#8c909f","surface-variant":"#313540","on-secondary":"#00363d","on-surface-variant":"#c2c6d6","outline-variant":"#424754","tertiary-fixed-dim":"#a4c9ff","primary-fixed-dim":"#adc6ff","on-error":"#690005","secondary-container":"#00e3fd","secondary":"#bdf4ff","on-tertiary-container":"#002a51","on-tertiary-fixed":"#001c39","surface-container-high":"#262a35","on-tertiary-fixed-variant":"#004883","on-secondary-container":"#00616d","surface-container":"#1c1f2a","on-tertiary":"#00315d","background":"#0f131d","on-error-container":"#ffdad6","primary-fixed":"#d8e2ff","surface-bright":"#353944","primary":"#adc6ff","tertiary":"#a4c9ff","surface":"#0f131d","inverse-on-surface":"#2c303b","inverse-surface":"#dfe2f1","on-secondary-fixed":"#001f24","surface-container-highest":"#313540","surface-dim":"#0f131d","tertiary-container":"#4c93e7"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-mobile":"1rem","space-xl":"2.5rem","margin-mobile":"1rem","margin":"2rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter":"1.5rem","space-md":"1rem","space-xs":"0.25rem"},fontFamily:{"display-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"]},fontSize:{"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"800"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"800"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container pb-[88px]"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between py-space-lg shadow-[0_1px_12px_rgba(0,0,0,0.5)]"><div class="flex flex-col gap-space-lg px-space-md"><div class="flex items-center gap-space-sm px-space-sm"><img alt="AuraBeat Music Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XCt-yjbIHxEo1cr6GfCC9I1X8HtUp2m4G3psZSzr6nZ3YcafPtb13QsI1bM2mkxDZUcuxc6cxYVaxr1xvulCm4R1ywUxVePKawzDGJc4iXFH85mK6FEDUUkTTdXEjwHc6GwyvBvAhsw0Vq3cW_gAoCKzDjNL8bNCr2cKGdzR7JNgkfqrI2GRWUwDqj0OajMiYZXhez9pR2q3GMpbH0E-J5jo1HyDdtZr6KtWvB5WPcPhwsM9d8iH4hKKY"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">AuraBeat</span></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">Menú</span><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="dashboard-usuario" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span>Inicio</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="explorar" href="#"><span class="material-symbols-outlined text-[20px]">explore</span><span>Explorar</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="biblioteca" href="#"><span class="material-symbols-outlined text-[20px]">library_music</span><span>Biblioteca</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="listas-reproduccion" href="#"><span class="material-symbols-outlined text-[20px]">queue_music</span><span>Listas de Reproducción</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="favoritos" href="#"><span class="material-symbols-outlined text-[20px]">favorite</span><span>Favoritos</span></a></nav></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">Administración</span><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="admin-metricas" href="#"><span class="material-symbols-outlined text-[20px]">monitoring</span><span>Métricas Principales</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="admin-usuarios" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Gestión de Usuarios</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="admin-catalogo" href="#"><span class="material-symbols-outlined text-[20px]">album</span><span>Catálogo Musical</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="admin-ingresos" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span>Ingresos</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-lg text-label-lg" data-path="admin-ajustes" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Ajustes</span></a></nav></div></div><div class="px-space-md"><a class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all" data-path="perfil-usuario" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNiupb8igA3T_ACcFD_e2rUoz_uRB0lyT6VAyCtpcNE4O5-cvH6euYCmKPsO_rNWvutWb8xOPf2CxrPQhYQNpGku0J3YVBbRhOI3xs_l9he4piFn6AASbiA_Kc48-bOYGfqvQoLa9txaIsfj4p7p3ZdNHaMgJB2zviDhg_vWSQ9mU9-qp4HcEdXIW7qa19GaesscFcMkYfXLI5_iICPxe-D6B1BIKQiSivfv99ck0YV5ooJg_8kmNSA"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface truncate">Alex Vance</span><span class="font-label-sm text-label-sm text-outline truncate">Audiófilo Hi-Fi</span></div></a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-sm w-96 bg-surface-container px-space-md py-space-xs rounded-full shadow-inner"><span class="material-symbols-outlined text-outline text-[18px]">search</span><input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline w-full focus:ring-0" placeholder="Buscar artistas, álbumes, canciones..." type="text"/></div><div class="flex items-center gap-space-md"><button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all relative"><span class="material-symbols-outlined">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary-container"></span></button><button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all"><span class="material-symbols-outlined">equalizer</span></button><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNiupb8igA3T_ACcFD_e2rUoz_uRB0lyT6VAyCtpcNE4O5-cvH6euYCmKPsO_rNWvutWb8xOPf2CxrPQhYQNpGku0J3YVBbRhOI3xs_l9he4piFn6AASbiA_Kc48-bOYGfqvQoLa9txaIsfj4p7p3ZdNHaMgJB2zviDhg_vWSQ9mU9-qp4HcEdXIW7qa19GaesscFcMkYfXLI5_iICPxe-D6B1BIKQiSivfv99ck0YV5ooJg_8kmNSA"/></div></div></header><main class="relative pt-16 bg-surface min-h-[calc(100vh-88px)] w-full px-gutter"><div class="flex flex-col w-full">
+<div class="relative w-full py-space-md flex flex-col gap-space-lg">
+<!-- Top Action & Title Bar -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md pb-space-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-secondary-container shadow-[0_0_8px_rgba(0,227,253,0.8)]"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-fixed-dim">SISTEMA EN TIEMPO REAL</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Centro de Control Administrativo</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitoreo de telemetría de streaming, distribución de catálogo máster y gestión de usuarios activos.</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Time Range Selector -->
+<div class="bg-surface-container-low p-space-xs rounded-full flex items-center shadow-inner">
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container-high text-secondary-fixed-dim shadow-sm transition-all" id="btn-period-30" onclick="switchPeriod(this, '30')">Últimos 30 días</button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" id="btn-period-90" onclick="switchPeriod(this, '90')">90 días</button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" id="btn-period-year" onclick="switchPeriod(this, 'year')">Este año</button>
+</div>
+<!-- Export CSV -->
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-lg text-label-lg transition-all shadow-sm" onclick="triggerExportNotice()">
+<span class="material-symbols-outlined text-[18px] text-tertiary">download</span>
+<span>Exportar Reporte CSV</span>
+</button>
+<!-- Upload Master Modal Trigger -->
+<button class="flex items-center gap-space-xs px-space-lg py-2.5 rounded-full bg-gradient-to-r from-primary-container to-secondary-container hover:scale-[1.02] text-on-primary-container font-label-lg text-label-lg transition-all shadow-[0_0_20px_rgba(0,227,253,0.35)]" onclick="toggleUploadModal(true)">
+<span class="material-symbols-outlined text-[20px] font-bold">cloud_upload</span>
+<span class="font-bold">Subir Nueva Canción / Pista</span>
+</button>
+</div>
+</div>
+<!-- Notification Toast (Hidden by default) -->
+<div class="hidden fixed bottom-24 right-8 z-50 bg-surface-container-highest/95 backdrop-blur-xl px-space-md py-space-sm rounded-xl shadow-[0_12px_32px_rgba(0,0,0,0.8)] flex items-center gap-space-sm transition-all" id="action-toast">
+<span class="material-symbols-outlined text-secondary-container text-[22px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface" id="toast-text">Reporte consolidado descargado exitosamente.</span>
+</div>
+<!-- KPI Metric Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1: Usuarios Activos -->
+<div class="relative bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md flex flex-col justify-between overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.5)] group hover:translate-y-[-2px] transition-all">
+<div class="absolute -top-12 -right-12 w-28 h-28 rounded-full bg-primary-container/10 blur-2xl group-hover:bg-primary-container/20 transition-all pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Usuarios Activos Globales</span>
+<span class="font-headline-lg text-headline-lg text-on-surface mt-space-xs">1,428,930</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary-fixed-dim shadow-inner">
+<span class="material-symbols-outlined text-[22px]">people_alt</span>
+</div>
+</div>
+<div class="mt-space-md flex items-end justify-between">
+<div class="flex items-center gap-1 text-secondary-fixed-dim font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+14.2%</span>
+<span class="text-outline font-body-sm text-body-sm ml-1">vs mes anterior</span>
+</div>
+<!-- Sparkline Blue -->
+<div class="w-24 h-9">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 36">
+<defs>
+<lineargradient id="spark-blue" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00e3fd" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#00e3fd" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,28 Q15,30 25,18 T50,16 T75,8 T100,2 L100,36 L0,36 Z" fill="url(#spark-blue)"></path>
+<path d="M0,28 Q15,30 25,18 T50,16 T75,8 T100,2" fill="none" stroke="#00e3fd" stroke-linecap="round" stroke-width="2.2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- KPI 2: Catálogo Master -->
+<div class="relative bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md flex flex-col justify-between overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.5)] group hover:translate-y-[-2px] transition-all">
+<div class="absolute -top-12 -right-12 w-28 h-28 rounded-full bg-secondary-fixed-dim/10 blur-2xl group-hover:bg-secondary-fixed-dim/20 transition-all pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Catálogo Master Hi-Fi</span>
+<span class="font-headline-lg text-headline-lg text-on-surface mt-space-xs">12,450,812</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-[22px]">album</span>
+</div>
+</div>
+<div class="mt-space-md flex items-end justify-between">
+<div class="flex items-center gap-1 text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">library_add</span>
+<span>+85,420</span>
+<span class="text-outline font-body-sm text-body-sm ml-1">nuevas añadidas</span>
+</div>
+<div class="w-24 h-9">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 36">
+<path d="M0,24 Q20,12 40,22 T70,10 T100,4" fill="none" stroke="#adc6ff" stroke-linecap="round" stroke-width="2.2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- KPI 3: Horas Streaming -->
+<div class="relative bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md flex flex-col justify-between overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.5)] group hover:translate-y-[-2px] transition-all">
+<div class="absolute -top-12 -right-12 w-28 h-28 rounded-full bg-tertiary/10 blur-2xl group-hover:bg-tertiary/20 transition-all pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Horas de Reproducción</span>
+<span class="font-headline-lg text-headline-lg text-on-surface mt-space-xs">48.6M hrs</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary shadow-inner">
+<span class="material-symbols-outlined text-[22px]">graphic_eq</span>
+</div>
+</div>
+<div class="mt-space-md flex items-end justify-between">
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>+22.8%</span>
+<span class="text-outline font-body-sm text-body-sm ml-1">engagement</span>
+</div>
+<div class="w-24 h-9">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 36">
+<defs>
+<lineargradient id="spark-sec" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#bdf4ff" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#bdf4ff" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,32 Q25,25 45,15 T80,18 T100,6 L100,36 L0,36 Z" fill="url(#spark-sec)"></path>
+<path d="M0,32 Q25,25 45,15 T80,18 T100,6" fill="none" stroke="#bdf4ff" stroke-linecap="round" stroke-width="2.2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- KPI 4: Ingresos Mensuales -->
+<div class="relative bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md flex flex-col justify-between overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.5)] group hover:translate-y-[-2px] transition-all">
+<div class="absolute -top-12 -right-12 w-28 h-28 rounded-full bg-secondary-container/10 blur-2xl group-hover:bg-secondary-container/20 transition-all pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Ingresos Mensuales (MRR)</span>
+<span class="font-headline-lg text-headline-lg text-secondary-fixed-dim mt-space-xs">$482,500</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary-container shadow-inner">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+</div>
+<div class="mt-space-md flex items-end justify-between">
+<div class="flex items-center gap-1 text-secondary-fixed-dim font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+<span>+9.4%</span>
+<span class="text-outline font-body-sm text-body-sm ml-1">vs objetivo mensual</span>
+</div>
+<div class="w-24 h-9">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 36">
+<path d="M0,26 Q30,22 50,14 T80,12 T100,3" fill="none" stroke="#00daf3" stroke-linecap="round" stroke-width="2.2"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Operational Workspace: Bento Layout with 2 Columns -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Catalog Management Stage (8 Cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- Table Control Strip -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md shadow-[0_8px_24px_rgba(0,0,0,0.5)] flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest p-1 rounded-lg">
+<button class="px-space-md py-1.5 rounded-md font-label-lg text-label-lg bg-surface-container text-on-surface transition-all" id="tab-tracks" onclick="switchTableTab('tracks')">Gestión de Catálogo</button>
+<button class="px-space-md py-1.5 rounded-md font-label-lg text-label-lg text-outline hover:text-on-surface transition-all" id="tab-users" onclick="switchTableTab('users')">Usuarios Clave &amp; Artistas</button>
+</div>
+<!-- Filters and Search in table -->
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded-full flex-1 sm:w-64">
+<span class="material-symbols-outlined text-outline text-[18px]">search</span>
+<input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline w-full focus:ring-0" id="table-search" onkeyup="filterTracks()" placeholder="Filtrar pista o artista..." type="text"/>
+</div>
+<button class="p-1.5 rounded-full bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Catalog Table Container -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-outline font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-lowest/60 rounded-lg">
+<th class="py-space-sm px-space-sm font-semibold rounded-l-lg">Pista &amp; Carátula</th>
+<th class="py-space-sm px-space-sm font-semibold">Artista / Productor</th>
+<th class="py-space-sm px-space-sm font-semibold">Género</th>
+<th class="py-space-sm px-space-sm font-semibold">Reproducciones</th>
+<th class="py-space-sm px-space-sm font-semibold">Estado</th>
+<th class="py-space-sm px-space-sm font-semibold">Alta</th>
+<th class="py-space-sm px-space-sm font-semibold text-right rounded-r-lg">Acciones</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm" id="tracks-table-body">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-md overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Futuristic neon city synthwave vinyl album cover with sharp glowing cyan and dark purple reflections, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtbU02eHozgCjN8tTXckePJAigxbIOJ2Wba84EJSOioLRIoxjY-fZ_0_gk-3eioxodVFNtl3ysLLerCcnoX_VaRMqcgDk6T6th1XbQM4k04lD7iOLIHuEsI6AdMj3nkKvs0MdITvStaQWTWnSzC0rn6sHuKYs3akxczXecE29F-iban9iQT0JW0HOVy9GLncO0TR9rZnVCj7iyyOgahCeqKddGrayVww4kg78rW7T_WPzz3ygBiofEUQ"/>
+<button class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-secondary-container">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</button>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Hyperdrive 1984</span>
+<span class="font-label-sm text-label-sm text-outline">ID: #TRK-88219</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-medium">Stellar Echoes</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary-fixed font-label-sm text-label-sm uppercase tracking-wide">Synthwave</span>
+</td>
+<td class="py-space-sm px-space-sm font-semibold text-on-surface">3,241,890</td>
+<td class="py-space-sm px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-0.5 rounded-full bg-secondary-container/10 text-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                      Activa
+                    </span>
+</td>
+<td class="py-space-sm px-space-sm text-outline">14 Oct, 2024</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-full hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" onclick="editTrack('Hyperdrive 1984')" title="Editar metadatos">
+<span class="material-symbols-outlined text-[17px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim transition-all" onclick="showTrackAnalytics('Hyperdrive 1984', '3,241,890')" title="Ver analíticas avanzadas">
+<span class="material-symbols-outlined text-[17px]">query_stats</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-error-container/40 flex items-center justify-center text-on-surface-variant hover:text-error transition-all" onclick="confirmDeleteTrack(this, 'Hyperdrive 1984')" title="Retirar de catálogo">
+<span class="material-symbols-outlined text-[17px]">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-md overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Abstract 3D iridescent chrome ribbon twisting in black void with cold blue volumetric backlight studio album artwork" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUGLG8-bb4VlX5LJ6caz6r0RwrZ64_7ubcN1uytbY-QO6xe0vWsb4gC5eAmkkklTocebKKNH1n6CKRGUttMRmhvoih0GT2IDaGlmRQjyPtc0KgH3e0-6Rgl2GNs10-oNIdRaczyOxrtU9tJotZ7c8HlkeZq50kWooDtD-0m3uOaWvQAUQw3-dzwwTBwJziKqCyqtVZ17uQoI9ChgK59kCVBFMrcbjQJRAKsammEA3PtEK7XW3w27qXbg"/>
+<button class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-secondary-container">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</button>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Submerged Frequencies</span>
+<span class="font-label-sm text-label-sm text-outline">ID: #TRK-90142</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-medium">Kroma Sound Labs</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm uppercase tracking-wide">Electronic</span>
+</td>
+<td class="py-space-sm px-space-sm font-semibold text-on-surface">1,820,410</td>
+<td class="py-space-sm px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-0.5 rounded-full bg-secondary-container/10 text-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                      Activa
+                    </span>
+</td>
+<td class="py-space-sm px-space-sm text-outline">22 Oct, 2024</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-full hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" onclick="editTrack('Submerged Frequencies')">
+<span class="material-symbols-outlined text-[17px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim transition-all" onclick="showTrackAnalytics('Submerged Frequencies', '1,820,410')">
+<span class="material-symbols-outlined text-[17px]">query_stats</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-error-container/40 flex items-center justify-center text-on-surface-variant hover:text-error transition-all" onclick="confirmDeleteTrack(this, 'Submerged Frequencies')">
+<span class="material-symbols-outlined text-[17px]">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-md overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Moody dark rainy city asphalt with neon reflection and electric guitar silhouette in minimalist style audio album art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgg7ZeQMevG2nJ5hzgz-8sEqFapQgnsnOKEYTz-cJXwliJdlrA4IkdLsrJLrLkLC8WtRsU7pbaB8flrbMWVKH_nMOXXgfoiux1PtWT41EEwQxZSZwrnMvgfl9d_weQoFfubj0bnJmAgKI8InQ6S1xI05lSEDv39p5blQoLG4NKVHXgourAQGU25XHpOaIQPIm1e4bQDNXiJlL5byCb4FJI80gK5zrRweYRQf9zcDSNHiGCckXb3nWSjg"/>
+<button class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-secondary-container">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</button>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Midnight Distortion</span>
+<span class="font-label-sm text-label-sm text-outline">ID: #TRK-93301</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-medium">The Static Wave</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-tertiary font-label-sm text-label-sm uppercase tracking-wide">Indie Rock</span>
+</td>
+<td class="py-space-sm px-space-sm font-semibold text-on-surface">942,100</td>
+<td class="py-space-sm px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-0.5 rounded-full bg-primary-container/15 text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                      En Revisión
+                    </span>
+</td>
+<td class="py-space-sm px-space-sm text-outline">02 Nov, 2024</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-full hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" onclick="editTrack('Midnight Distortion')">
+<span class="material-symbols-outlined text-[17px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim transition-all" onclick="showTrackAnalytics('Midnight Distortion', '942,100')">
+<span class="material-symbols-outlined text-[17px]">query_stats</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-error-container/40 flex items-center justify-center text-on-surface-variant hover:text-error transition-all" onclick="confirmDeleteTrack(this, 'Midnight Distortion')">
+<span class="material-symbols-outlined text-[17px]">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-md overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Sophisticated gold brass trumpet in deep shadow studio with blue atmospheric smoke haze audio album cover art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbpGAOt0q20rfN03n57mVMq__dCbsdsDnYZcfm8Hubim6zmsQ9WoxdhNSz73rUQX6KFAxxA0Xqtc07r0OdzSS6pdHehuMrXjAMhnmYjaGWYELpwM1mvhrBUmZxyklKk_w22S6fIqJv_W58bqdDUHWUnvBCyBuJp4R9kQz-d2c5gtjC7PaPVEYL09OzpK-P-NZuQTCzdRsbyD-Mz4y8u3PAAQ_5nlTVngotEpsjab8C4P63b-MhmgUvuA"/>
+<button class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-secondary-container">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</button>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Celestial Polyphony</span>
+<span class="font-label-sm text-label-sm text-outline">ID: #TRK-94420</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-medium">Marcus Valen Trio</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm uppercase tracking-wide">Jazz Fusion</span>
+</td>
+<td class="py-space-sm px-space-sm font-semibold text-on-surface">430,920</td>
+<td class="py-space-sm px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-0.5 rounded-full bg-secondary-container/10 text-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                      Activa
+                    </span>
+</td>
+<td class="py-space-sm px-space-sm text-outline">05 Nov, 2024</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-full hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" onclick="editTrack('Celestial Polyphony')">
+<span class="material-symbols-outlined text-[17px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim transition-all" onclick="showTrackAnalytics('Celestial Polyphony', '430,920')">
+<span class="material-symbols-outlined text-[17px]">query_stats</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-error-container/40 flex items-center justify-center text-on-surface-variant hover:text-error transition-all" onclick="confirmDeleteTrack(this, 'Celestial Polyphony')">
+<span class="material-symbols-outlined text-[17px]">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 (Flagged / Retirada) -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-md overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Monochrome dark textured geometric pattern with red error glitched artifact high-end minimalist graphic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBEnhsaPfGyKPz1ZtnH5RbJo8FzLxaBlI6kqaAXVjI52ODR7TGqdje7u_xNlORZ7xt6J4OwqC1ro6B5NpDee_3NCrdaItmqhxazpiOyTYmJ_h6w7QGQ1lm1ntf27MwA677yR1euDoHU_qqdSEpOodrIuHU2ZNl-vtuLIUz1Cpl9jzdn39wk4opLpHlEDeD-zh6iyDHWdo6VJjxbSdf6N9v6C-jIc6iLmpjZ9M7109OBX-g6dbHZsfl4Q"/>
+<button class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-error">
+<span class="material-symbols-outlined text-[20px]">block</span>
+</button>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate line-through opacity-70">Overdrive Collision</span>
+<span class="font-label-sm text-label-sm text-outline">ID: #TRK-77109</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-medium">Unknown Collective</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-outline font-label-sm text-label-sm uppercase tracking-wide">Electronic</span>
+</td>
+<td class="py-space-sm px-space-sm font-semibold text-on-surface">58,110</td>
+<td class="py-space-sm px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-0.5 rounded-full bg-error-container/30 text-error font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                      Retirada (DMCA)
+                    </span>
+</td>
+<td class="py-space-sm px-space-sm text-outline">19 Sep, 2024</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-full hover:bg-surface-bright flex items-center justify-center text-secondary-fixed-dim transition-all" onclick="restoreTrack(this, 'Overdrive Collision')" title="Restaurar pista">
+<span class="material-symbols-outlined text-[17px]">restart_alt</span>
+</button>
+<button class="w-8 h-8 rounded-full hover:bg-error-container/40 flex items-center justify-center text-error transition-all" onclick="confirmDeleteTrack(this, 'Overdrive Collision')" title="Purgar definitivamente">
+<span class="material-symbols-outlined text-[17px]">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Bar -->
+<div class="flex items-center justify-between pt-space-sm text-outline font-label-sm text-label-sm">
+<span>Mostrando 5 de 1,248 pistas máster registradas</span>
+<div class="flex items-center gap-space-xs">
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center hover:bg-surface-container-high text-on-surface transition-all">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-bold flex items-center justify-center shadow-sm">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center hover:bg-surface-container-high text-on-surface transition-all">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center hover:bg-surface-container-high text-on-surface transition-all">3</button>
+<span class="px-1">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center hover:bg-surface-container-high text-on-surface transition-all">250</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center hover:bg-surface-container-high text-on-surface transition-all">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Real-time Acoustic & Server Bitrate Performance Card -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md shadow-[0_8px_24px_rgba(0,0,0,0.5)] flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">speed</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Rendimiento Acústico y Tráfico CDN</h2>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Distribución de bitrates de entrega y estado de codificación multi-codec en tiempo real</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">FLAC 24-bit / 96kHz (Lossless)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">AAC 320 kbps (High Quality)</span>
+</div>
+</div>
+</div>
+<!-- Synthetic Visual Acoustic Histogram -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs">
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-inner">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Tasa FLAC Lossless</span>
+<span class="font-label-md text-label-md text-secondary-fixed-dim font-bold">64.2%</span>
+</div>
+<div class="my-space-sm flex items-end gap-1 h-16">
+<div class="flex-1 bg-secondary-container/40 rounded-t h-[40%]"></div>
+<div class="flex-1 bg-secondary-container/60 rounded-t h-[65%]"></div>
+<div class="flex-1 bg-secondary-container/80 rounded-t h-[80%]"></div>
+<div class="flex-1 bg-secondary-container rounded-t h-[100%] shadow-[0_0_10px_rgba(0,227,253,0.5)]"></div>
+<div class="flex-1 bg-secondary-container/70 rounded-t h-[75%]"></div>
+<div class="flex-1 bg-secondary-container/90 rounded-t h-[90%]"></div>
+<div class="flex-1 bg-secondary-container/50 rounded-t h-[55%]"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Latencia de inicio de reproducción: <strong class="text-on-surface">112ms</strong></span>
+</div>
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-inner">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Tasa AAC 320kbps</span>
+<span class="font-label-md text-label-md text-primary font-bold">35.8%</span>
+</div>
+<div class="my-space-sm flex items-end gap-1 h-16">
+<div class="flex-1 bg-primary-container/30 rounded-t h-[60%]"></div>
+<div class="flex-1 bg-primary-container/50 rounded-t h-[45%]"></div>
+<div class="flex-1 bg-primary-container/80 rounded-t h-[90%]"></div>
+<div class="flex-1 bg-primary-container rounded-t h-[70%]"></div>
+<div class="flex-1 bg-primary-container/70 rounded-t h-[55%]"></div>
+<div class="flex-1 bg-primary-container/40 rounded-t h-[35%]"></div>
+<div class="flex-1 bg-primary-container/60 rounded-t h-[65%]"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Carga de caché en borde CDN: <strong class="text-on-surface">99.4% hit</strong></span>
+</div>
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-inner">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Health Global Servidores</span>
+<span class="inline-flex items-center gap-1 font-label-md text-label-md text-secondary-container font-bold">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                  99.98%
+                </span>
+</div>
+<div class="my-space-sm flex flex-col gap-2">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Ancho de banda actual</span>
+<span class="text-on-surface font-semibold">1.84 Tbps</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full w-[68%] bg-gradient-to-r from-primary-container to-secondary-container rounded-full shadow-[0_0_8px_rgba(0,227,253,0.5)]"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>Nodos activos: 48/48</span>
+<span>Sin caídas de paquetes</span>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Transcodificación por GPU: <strong class="text-on-surface">Óptima</strong></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Live Moderation Queue & Trending Radar (4 Cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- Live Moderation & Copyright Queue -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md shadow-[0_8px_24px_rgba(0,0,0,0.5)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-[20px]">shield</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Cola de Moderación</h2>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-error-container/30 text-error font-label-sm text-label-sm font-bold">4 Pendientes</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Alert Item 1 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-space-xs border-l-2 border-transparent hover:bg-surface-container-high transition-all" id="mod-card-1">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-error text-[18px] flex-shrink-0">report_problem</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Coincidencia de Sample no licenciado</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline flex-shrink-0">Hace 8m</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pista: <strong class="text-on-surface">"Retro Sunset Club"</strong> por DJ VibeX. Fingerprint match: 91% con obra registrada.</p>
+<div class="flex items-center justify-end gap-space-xs mt-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-bright text-on-surface hover:text-secondary-fixed-dim font-label-sm text-label-sm transition-all" onclick="resolveModeration('mod-card-1', 'Aprobado')">Ignorar</button>
+<button class="px-space-sm py-1 rounded bg-error-container text-on-error hover:brightness-110 font-label-sm text-label-sm font-semibold transition-all" onclick="resolveModeration('mod-card-1', 'Retirado')">Bloquear Audio</button>
+</div>
+</div>
+<!-- Alert Item 2 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-all" id="mod-card-2">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0">verified_user</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Verificación de Creador Oficial</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline flex-shrink-0">Hace 34m</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sello discográfico <strong class="text-on-surface">"Aura Records Corp"</strong> solicita insignia de autenticidad.</p>
+<div class="flex items-center justify-end gap-space-xs mt-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-bright text-on-surface hover:text-outline font-label-sm text-label-sm transition-all" onclick="resolveModeration('mod-card-2', 'Denegado')">Rechazar</button>
+<button class="px-space-sm py-1 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold transition-all" onclick="resolveModeration('mod-card-2', 'Verificado')">Aprobar Insignia</button>
+</div>
+</div>
+<!-- Alert Item 3 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-all" id="mod-card-3">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px] flex-shrink-0">file_download_done</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Validación de Bitrate Lossless</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline flex-shrink-0">Hace 1h</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pista <strong class="text-on-surface">"Midnight Voyage"</strong> etiquetada como FLAC 96kHz presenta recorte a 16kHz.</p>
+<div class="flex items-center justify-end gap-space-xs mt-space-xs">
+<button class="px-space-sm py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold transition-all" onclick="resolveModeration('mod-card-3', 'Reclasificado')">Reclasificar a AAC</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Trending Hits & Surge Monitor -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md shadow-[0_8px_24px_rgba(0,0,0,0.5)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">local_fire_department</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Pistas en Tendencia Viral</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">En vivo</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container transition-all">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="font-label-md text-label-md font-bold text-secondary-container w-4">01</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Neon Odyssey</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Cyberpunk Soundscape</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-label-md text-label-md text-secondary-fixed-dim font-bold">+184%</span>
+<span class="font-label-sm text-label-sm text-outline">840K plays/hoy</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container transition-all">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="font-label-md text-label-md font-bold text-primary w-4">02</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Ecos del Horizonte</span>
+<span class="font-body-sm text-body-sm text-outline truncate">AuraBeat Originals</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-label-md text-label-md text-primary font-bold">+112%</span>
+<span class="font-label-sm text-label-sm text-outline">620K plays/hoy</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container transition-all">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="font-label-md text-label-md font-bold text-tertiary w-4">03</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Quantum Pulse</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Helios Project</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-label-md text-label-md text-tertiary font-bold">+88%</span>
+<span class="font-label-sm text-label-sm text-outline">510K plays/hoy</span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs">
+<button class="w-full py-2 rounded-lg bg-surface-container hover:bg-surface-bright text-secondary-fixed-dim font-label-md text-label-md text-center transition-all" onclick="showTrendingReport()">
+              Ver Gráfico Completo de Virales
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal: Subir Nueva Canción / Pista Máster -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-space-md bg-background/80 backdrop-blur-md" id="upload-modal">
+<div class="relative w-full max-w-xl bg-surface-container-low rounded-2xl p-space-lg shadow-[0_20px_50px_rgba(0,0,0,0.8)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined text-[24px]">cloud_upload</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Subir Nueva Pista Máster</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Acepta archivos FLAC 24-bit, WAV estéreo y ALAC sin compresión con pérdida.</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" onclick="toggleUploadModal(false)">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drag and Drop Area -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest flex flex-col items-center justify-center gap-space-xs text-center cursor-pointer hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[36px] text-secondary-container animate-bounce">audio_file</span>
+<span class="font-label-lg text-label-lg text-on-surface">Arrastra el archivo de audio Hi-Fi aquí</span>
+<span class="font-body-sm text-body-sm text-outline">o haz clic para explorar tu almacenamiento local (Hasta 2GB)</span>
+</div>
+<!-- Metadata Fields -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Título de la Pista</label>
+<input class="bg-surface-container px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm outline-none focus:ring-1 focus:ring-secondary-container" id="modal-track-title" placeholder="Ej: Nebula Drive" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Artista / Productor</label>
+<input class="bg-surface-container px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm outline-none focus:ring-1 focus:ring-secondary-container" id="modal-track-artist" placeholder="Ej: Stellar Echoes" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Género Primario</label>
+<select class="bg-surface-container px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm outline-none focus:ring-1 focus:ring-secondary-container" id="modal-track-genre">
+<option value="Synthwave">Synthwave</option>
+<option value="Electronic">Electronic</option>
+<option value="Indie Rock">Indie Rock</option>
+<option value="Jazz Fusion">Jazz Fusion</option>
+<option value="Ambient">Ambient Hi-Fi</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Código ISRC / Licencia</label>
+<input class="bg-surface-container px-space-sm py-2 rounded-lg text-on-surface font-body-sm text-body-sm outline-none focus:ring-1 focus:ring-secondary-container" placeholder="US-AUR-24-00918" type="text"/>
+</div>
+</div>
+<!-- Modal Action Buttons -->
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all" onclick="toggleUploadModal(false)">Cancelar</button>
+<button class="px-space-lg py-2 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold hover:brightness-110 transition-all shadow-[0_0_15px_rgba(0,227,253,0.4)]" onclick="submitNewTrack()">
+          Procesar y Codificar Máster
+        </button>
+</div>
+</div>
+</div>
+<!-- Interactive Scripts -->
+<script>
+    function triggerExportNotice() {
+      showToast('Consolidando telemetría... Reporte CSV descargado con éxito.');
+    }
+
+    function showTrendingReport() {
+      showToast('Abriendo informe analítico de tendencias en tiempo real.');
+    }
+
+    function switchPeriod(btn, period) {
+      document.querySelectorAll('#btn-period-30, #btn-period-90, #btn-period-year').forEach(b => {
+        b.className = 'px-space-md py-1 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all';
+      });
+      btn.className = 'px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container-high text-secondary-fixed-dim shadow-sm transition-all';
+      showToast('Métricas actualizadas para el período: ' + (period === '30' ? 'Últimos 30 días' : period === '90' ? '90 días' : 'Este año'));
+    }
+
+    function switchTableTab(tab) {
+      const tabTracks = document.getElementById('tab-tracks');
+      const tabUsers = document.getElementById('tab-users');
+      if (tab === 'tracks') {
+        tabTracks.className = 'px-space-md py-1.5 rounded-md font-label-lg text-label-lg bg-surface-container text-on-surface transition-all';
+        tabUsers.className = 'px-space-md py-1.5 rounded-md font-label-lg text-label-lg text-outline hover:text-on-surface transition-all';
+        showToast('Visualizando Catálogo Completo de Pistas');
+      } else {
+        tabUsers.className = 'px-space-md py-1.5 rounded-md font-label-lg text-label-lg bg-surface-container text-on-surface transition-all';
+        tabTracks.className = 'px-space-md py-1.5 rounded-md font-label-lg text-label-lg text-outline hover:text-on-surface transition-all';
+        showToast('Visualizando 14,290 Creadores y Administradores');
+      }
+    }
+
+    function filterTracks() {
+      const q = document.getElementById('table-search').value.toLowerCase();
+      const rows = document.querySelectorAll('#tracks-table-body tr');
+      rows.forEach(r => {
+        const text = r.innerText.toLowerCase();
+        r.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    function confirmDeleteTrack(btn, trackName) {
+      if (confirm('¿Estás seguro de que deseas retirar del catálogo la pista "' + trackName + '"?')) {
+        const row = btn.closest('tr');
+        row.style.opacity = '0.3';
+        row.style.pointerEvents = 'none';
+        showToast('Pista "' + trackName + '" retirada del catálogo master.');
+      }
+    }
+
+    function restoreTrack(btn, trackName) {
+      const row = btn.closest('tr');
+      row.style.opacity = '1';
+      showToast('Pista "' + trackName + '" restaurada y puesta en re-evaluación.');
+    }
+
+    function editTrack(trackName) {
+      showToast('Cargando editor de metadatos para "' + trackName + '"');
+    }
+
+    function showTrackAnalytics(trackName, plays) {
+      showToast('Telemetría de "' + trackName + '": ' + plays + ' reproducciones únicas.');
+    }
+
+    function resolveModeration(cardId, action) {
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.style.transition = 'all 0.3s ease';
+        card.style.opacity = '0';
+        setTimeout(() => {
+          card.remove();
+          showToast('Elemento de moderación resuelto: ' + action);
+        }, 300);
+      }
+    }
+
+    function toggleUploadModal(show) {
+      const modal = document.getElementById('upload-modal');
+      if (show) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function submitNewTrack() {
+      const title = document.getElementById('modal-track-title').value || 'Sin Título';
+      const artist = document.getElementById('modal-track-artist').value || 'Artista Desconocido';
+      toggleUploadModal(false);
+      showToast('Pista "' + title + '" por ' + artist + ' encolada para transcodificación FLAC/AAC.');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('action-toast');
+      const toastText = document.getElementById('toast-text');
+      toastText.innerText = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window._toastTimeout);
+      window._toastTimeout = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+  </script>
+</div></main></div><div class="fixed bottom-0 left-0 right-0 h-[88px] bg-surface-container-lowest/95 backdrop-blur-2xl z-50 px-gutter flex items-center justify-between shadow-[0_-4px_24px_rgba(0,0,0,0.6)]"><div class="flex items-center gap-space-md w-72 min-w-0"><div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center relative overflow-hidden flex-shrink-0 shadow-[0_0_16px_rgba(0,229,255,0.2)]"><span class="material-symbols-outlined text-secondary">music_note</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface truncate">Resonance Horizon</span><span class="font-body-sm text-body-sm text-outline truncate">Kavinsky ft. AuraBeat</span></div><button class="text-on-surface-variant hover:text-secondary transition-colors ml-space-xs"><span class="material-symbols-outlined text-[20px]">favorite</span></button></div><div class="flex flex-col items-center gap-space-xs max-w-xl w-full px-space-md"><div class="flex items-center gap-space-md"><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">shuffle</span></button><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">skip_previous</span></button><button class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,227,253,0.4)]"><span class="material-symbols-outlined text-[24px]">play_arrow</span></button><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">skip_next</span></button><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">repeat</span></button></div><div class="w-full flex items-center gap-space-sm"><span class="font-label-sm text-label-sm text-outline">01:24</span><div class="h-1 flex-1 bg-surface-container-highest rounded-full overflow-hidden relative cursor-pointer"><div class="h-full w-1/3 bg-secondary-container relative rounded-full shadow-[0_0_12px_rgba(0,227,253,0.8)]"></div></div><span class="font-label-sm text-label-sm text-outline">03:48</span></div></div><div class="flex items-center justify-end gap-space-sm w-72"><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">queue_music</span></button><button class="text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">devices</span></button><div class="flex items-center gap-space-xs w-28"><span class="material-symbols-outlined text-outline text-[18px]">volume_up</span><div class="h-1 flex-1 bg-surface-container-highest rounded-full overflow-hidden cursor-pointer"><div class="h-full w-3/4 bg-on-surface-variant rounded-full"></div></div></div></div></div></body></html>
