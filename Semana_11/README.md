@@ -18,7 +18,8 @@ Se compila con `g++` a `backend.exe` (ver `Backend/README.md`). Datos solo en me
 | `src/routes/` | Mapea cada `MÉTODO + path` (`/api/auth/...`, `/api/amigos`, `/api/grafo/...`) a su controlador. |
 | `src/routes/Routes.h` / `.cpp` | `Routes::registrar()`: todo el ruteo del API en un solo lugar. |
 | `src/models/` | Estructuras de datos del laboratorio (la parte de EDD). |
-| `src/models/Grafo.h` / `.cpp` | `GrafoNoDirigido` con lista de adyacencia hecha a mano (`map` + `vector`): vértices, aristas en ambos sentidos, amigos en común, red de 2 niveles y generación del DOT. |
+| `src/models/Lista.h` | `Lista<T>` enlazada simple hecha a mano + `Par` clave=valor: base del grafo, solicitudes, query strings y rutas (cero `std::vector`/`std::map`). |
+| `src/models/Grafo.h` / `.cpp` | `GrafoNoDirigido` con lista de adyacencia hecha a mano (`map` + `Lista` enlazada): vértices, aristas en ambos sentidos, amigos en común, red de 2 niveles y generación del DOT. |
 | `src/models/Store.h` / `.cpp` | Singleton en memoria: `usuarios`, `solicitudes`, `grafo` + `mutex` (multihilo). |
 | `src/controllers/` | Lógica de cada endpoint: validan, tocan el `Store` y devuelven `Result`. |
 | `src/controllers/Result.h` / `.cpp` | `{status, body, contentType}` + helpers (`errJson`, `trimStr`). |

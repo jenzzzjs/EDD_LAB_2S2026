@@ -29,14 +29,14 @@ Result registro(const std::string& nombre, const std::string& correo,
 
     Store& st = Store::get();
     std::lock_guard<std::mutex> lock(st.mtx);
-    if (st.usuarios.find(c) != st.usuarios.end())
+    if (st.buscarUsuario(c) >= 0)
         return {409, errJson("el correo ya esta registrado")};
 
     Usuario u;
     u.nombre = n;
     u.correo = c;
     u.passwordHash = sha256::hashHex(password);
-    st.usuarios[c] = u;
+    st.usuarios.push_back(u);
     st.grafo.agregarVertice(n, c);
 
     Result r;
@@ -55,13 +55,13 @@ Result login(const std::string& correo, const std::string& password) {
 
     Store& st = Store::get();
     std::lock_guard<std::mutex> lock(st.mtx);
-    auto it = st.usuarios.find(c);
-    if (it == st.usuarios.end() || !sha256::verify(password, it->second.passwordHash))
+    int ui = st.buscarUsuario(c);
+    if (ui < 0 || !sha256::verify(password, st.usuarios[ui].passwordHash))
         return {401, errJson("credenciales invalidas")};
 
     Result r;
-    r.body = "{\"ok\":true,\"usuario\":{\"nombre\":" + json::str(it->second.nombre) +
-             ",\"correo\":" + json::str(it->second.correo) + "}}";
+    r.body = "{\"ok\":true,\"usuario\":{\"nombre\":" + json::str(st.usuarios[ui].nombre) +
+             ",\"correo\":" + json::str(st.usuarios[ui].correo) + "}}";
     return r;
 }
 

@@ -42,7 +42,15 @@ static bool sendAll(sock_t s, const char* data, size_t len) {
 
 void HttpServer::route(const std::string& method, const std::string& path, Handler h) {
     // La tablita de rutas: "GET /api/amigos" -> su funcion. Asi de simple.
-    routes_[method + " " + path] = h;
+    // Busqueda lineal porque son pocas rutas y todo es a mano.
+    std::string clave = method + " " + path;
+    for (size_t i = 0; i < routes_.tam(); i++) {
+        if (routes_[i].clave == clave) {
+            routes_[i].handler = h;
+            return;
+        }
+    }
+    routes_.push_back(Ruta{clave, h});
 }
 
 static std::string lowerHeader(std::string s) {
@@ -60,14 +68,14 @@ static std::string trimSv(const std::string& s) {
 
 HttpResponse HttpServer::dispatch(const HttpRequest& req) {
     // Busca "METODO + ruta" en la tabla; si no existe, 404 de una vez.
-    auto it = routes_.find(req.method + " " + req.path);
-    if (it == routes_.end()) {
-        HttpResponse r;
-        r.status = 404;
-        r.body = "{\"ok\":false,\"error\":\"ruta no encontrada\"}";
-        return r;
+    std::string clave = req.method + " " + req.path;
+    for (size_t i = 0; i < routes_.tam(); i++) {
+        if (routes_[i].clave == clave) return routes_[i].handler(req);
     }
-    return it->second(req);
+    HttpResponse r;
+    r.status = 404;
+    r.body = "{\"ok\":false,\"error\":\"ruta no encontrada\"}";
+    return r;
 }
 
 void HttpServer::handleClient(unsigned long long sockFd, HttpServer* self) {
@@ -102,21 +110,32 @@ void HttpServer::handleClient(unsigned long long sockFd, HttpServer* self) {
         } else {
             req.method = reqLine.substr(0, sp1);
             std::string target = reqLine.substr(sp1 + 1, sp2 - sp1 - 1);
-            // Cabeceras.
+            // Cabeceras (lista de pares, sin map).
             size_t pos = eol + 2;
             while (pos < hEnd) {
                 size_t nl = data.find("\r\n", pos);
                 std::string line = data.substr(pos, nl - pos);
                 size_t c = line.find(':');
-                if (c != std::string::npos)
-                    req.headers[lowerHeader(trimSv(line.substr(0, c)))] =
-                        trimSv(line.substr(c + 1));
+                if (c != std::string::npos) {
+                    std::string hk = lowerHeader(trimSv(line.substr(0, c)));
+                    std::string hv = trimSv(line.substr(c + 1));
+                    bool ya = false;
+                    for (size_t k = 0; k < req.headers.tam(); k++) {
+                        if (req.headers[k].clave == hk) {
+                            req.headers[k].valor = hv;
+                            ya = true;
+                        }
+                    }
+                    if (!ya) req.headers.push_back(Par{hk, hv});
+                }
                 pos = nl + 2;
             }
             // Cuerpo segun Content-Length.
             size_t contentLen = 0;
-            auto cl = req.headers.find("content-length");
-            if (cl != req.headers.end()) contentLen = (size_t)strtoul(cl->second.c_str(), nullptr, 10);
+            for (size_t k = 0; k < req.headers.tam(); k++) {
+                if (req.headers[k].clave == "content-length")
+                    contentLen = (size_t)strtoul(req.headers[k].valor.c_str(), nullptr, 10);
+            }
             std::string body = data.substr(hEnd + 4);
             while (body.size() < contentLen && body.size() < 10 * 1024 * 1024) {
 #ifdef _WIN32

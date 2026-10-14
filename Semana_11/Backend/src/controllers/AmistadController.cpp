@@ -1,7 +1,5 @@
 #include "AmistadController.h"
 
-#include <algorithm>
-
 #include "../models/Store.h"
 #include "../utils/Json.h"
 
@@ -16,19 +14,28 @@ Result listarUsuarios(const std::string& excluir, const std::string& q) {
     Store& st = Store::get();
     std::lock_guard<std::mutex> lock(st.mtx);
 
-    std::vector<Usuario> todos;
-    for (auto& kv : st.usuarios) {
-        if (kv.first == ex) continue;
-        if (!query.empty() && toLowerStr(kv.second.nombre).find(query) == std::string::npos &&
-            kv.first.find(query) == std::string::npos)
+    Lista<Usuario> todos;
+    for (size_t i = 0; i < st.usuarios.tam(); i++) {
+        const Usuario& u = st.usuarios[i];
+        if (u.correo == ex) continue;
+        if (!query.empty() && toLowerStr(u.nombre).find(query) == std::string::npos &&
+            u.correo.find(query) == std::string::npos)
             continue;
-        todos.push_back(kv.second);
+        todos.push_back(u);
     }
-    std::sort(todos.begin(), todos.end(),
-              [](const Usuario& a, const Usuario& b) { return a.nombre < b.nombre; });
+    // Ordena por nombre con burbuja (a mano, sin <algorithm>).
+    for (size_t i = 0; i < todos.tam(); i++) {
+        for (size_t j = 0; j + 1 < todos.tam() - i; j++) {
+            if (todos[j + 1].nombre < todos[j].nombre) {
+                Usuario t = todos[j];
+                todos[j] = todos[j + 1];
+                todos[j + 1] = t;
+            }
+        }
+    }
 
     std::string body = "{\"ok\":true,\"usuarios\":[";
-    for (size_t i = 0; i < todos.size(); i++) {
+    for (size_t i = 0; i < todos.tam(); i++) {
         if (i > 0) body += ",";
         bool amigo = !ex.empty() && st.grafo.sonAmigos(ex, todos[i].correo);
         body += "{\"nombre\":" + json::str(todos[i].nombre) + ",\"correo\":" +
@@ -40,7 +47,7 @@ Result listarUsuarios(const std::string& excluir, const std::string& q) {
 
 // Busca la solicitud de->para en la lista. Devuelve su posicion o -1.
 static int buscarSolicitud(Store& st, const std::string& de, const std::string& para) {
-    for (size_t i = 0; i < st.solicitudes.size(); i++)
+    for (size_t i = 0; i < st.solicitudes.tam(); i++)
         if (st.solicitudes[i].de == de && st.solicitudes[i].para == para) return (int)i;
     return -1;
 }
@@ -56,7 +63,7 @@ Result enviarSolicitud(const std::string& de, const std::string& para) {
 
     Store& st = Store::get();
     std::lock_guard<std::mutex> lock(st.mtx);
-    if (st.usuarios.find(d) == st.usuarios.end() || st.usuarios.find(p) == st.usuarios.end())
+    if (st.buscarUsuario(d) < 0 || st.buscarUsuario(p) < 0)
         return {404, errJson("usuario no encontrado")};
     if (st.grafo.sonAmigos(d, p)) return {409, errJson("ya son amigos")};
 
@@ -80,14 +87,14 @@ Result pendientes(const std::string& correo) {
     std::lock_guard<std::mutex> lock(st.mtx);
     std::string body = "{\"ok\":true,\"pendientes\":[";
     bool primero = true;
-    for (size_t i = 0; i < st.solicitudes.size(); i++) {
+    for (size_t i = 0; i < st.solicitudes.tam(); i++) {
         const Solicitud& s = st.solicitudes[i];
         if (s.para == c && s.estado == "pendiente") {
             if (!primero) body += ",";
             primero = false;
             std::string nombre = s.de;
-            auto it = st.usuarios.find(s.de);
-            if (it != st.usuarios.end()) nombre = it->second.nombre;
+            int ui = st.buscarUsuario(s.de);
+            if (ui >= 0) nombre = st.usuarios[ui].nombre;
             body += "{\"de\":" + json::str(s.de) + ",\"nombre\":" + json::str(nombre) +
                     ",\"estado\":\"pendiente\"}";
         }
@@ -103,7 +110,7 @@ Result enviadas(const std::string& correo) {
     std::lock_guard<std::mutex> lock(st.mtx);
     std::string body = "{\"ok\":true,\"enviadas\":[";
     bool primero = true;
-    for (size_t i = 0; i < st.solicitudes.size(); i++) {
+    for (size_t i = 0; i < st.solicitudes.tam(); i++) {
         const Solicitud& s = st.solicitudes[i];
         if (s.de == c && s.estado == "pendiente") {
             if (!primero) body += ",";
@@ -149,11 +156,11 @@ Result listarAmigos(const std::string& correo) {
     std::string c = toLowerStr(trimStr(correo));
     Store& st = Store::get();
     std::lock_guard<std::mutex> lock(st.mtx);
-    if (st.usuarios.find(c) == st.usuarios.end())
+    if (st.buscarUsuario(c) < 0)
         return {404, errJson("usuario no encontrado")};
-    std::vector<Vertice> amigos = st.grafo.obtenerAmigos(c);
+    Lista<Vertice> amigos = st.grafo.obtenerAmigos(c);
     std::string body = "{\"ok\":true,\"amigos\":[";
-    for (size_t i = 0; i < amigos.size(); i++) {
+    for (size_t i = 0; i < amigos.tam(); i++) {
         if (i > 0) body += ",";
         body += "{\"nombre\":" + json::str(amigos[i].nombre) + ",\"correo\":" +
                 json::str(amigos[i].correo) + "}";

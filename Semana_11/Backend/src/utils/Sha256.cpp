@@ -2,7 +2,6 @@
 
 #include <cstdint>
 #include <sstream>
-#include <vector>
 
 namespace sha256 {
 namespace {
@@ -24,18 +23,26 @@ const uint32_t K[64] = {
 
 std::string hashHex(const std::string& input) {
     // 1. Padding a mano: mensaje + 0x80 + ceros + longitud de 64 bits.
-    std::vector<uint8_t> msg(input.begin(), input.end());
-    uint64_t bitLen = static_cast<uint64_t>(msg.size()) * 8;
-    msg.push_back(0x80);
-    while (msg.size() % 64 != 56) msg.push_back(0x00);
-    for (int i = 7; i >= 0; i--) msg.push_back(static_cast<uint8_t>((bitLen >> (i * 8)) & 0xFF));
+    // Buffer con new[] (sin std::vector): se calcula el tamaño final,
+    // se llena y al terminar se libera con delete[].
+    size_t inLen = input.size();
+    size_t total = inLen + 1;
+    while (total % 64 != 56) total++;
+    total += 8;
+    uint8_t* msg = new uint8_t[total];
+    for (size_t i = 0; i < inLen; i++) msg[i] = static_cast<uint8_t>(input[i]);
+    uint64_t bitLen = static_cast<uint64_t>(inLen) * 8;
+    msg[inLen] = 0x80;
+    for (size_t i = inLen + 1; i < total - 8; i++) msg[i] = 0x00;
+    for (int i = 7; i >= 0; i--)
+        msg[total - 8 + (7 - i)] = static_cast<uint8_t>((bitLen >> (i * 8)) & 0xFF);
 
     // 2. Estado inicial (raices cuadradas de los primeros 8 primos).
     uint32_t h[8] = {0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
                      0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19};
 
     // 3. Un bloque de 64 bytes a la vez.
-    for (size_t off = 0; off < msg.size(); off += 64) {
+    for (size_t off = 0; off < total; off += 64) {
         uint32_t w[64];
         for (int i = 0; i < 16; i++)
             w[i] = (static_cast<uint32_t>(msg[off + i * 4]) << 24) |
@@ -69,6 +76,7 @@ std::string hashHex(const std::string& input) {
     out.reserve(64);
     for (int i = 0; i < 8; i++)
         for (int j = 7; j >= 0; j--) out += HEX[(h[i] >> (j * 4)) & 0xF];
+    delete[] msg;
     return out;
 }
 

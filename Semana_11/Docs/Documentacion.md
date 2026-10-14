@@ -28,12 +28,13 @@ sobre todo, como se ejecuta.
 - **JSON / SHA-256 / Base64:** implementados a mano en `src/utils/`
   (sin nlohmann/json ni OpenSSL).
 - **Grafo:** `GrafoNoDirigido` con lista de adyacencia hecha a mano
-  (`std::map` + `std::vector`, recorridos con ciclos explicitos). Sin
-  networkx ni ninguna libreria de grafos.
+  (`std::map` como indice + `Lista` enlazada simple de vecinos, recorridos
+  con ciclos explicitos y ordenamiento por burbuja). Sin `std::vector`,
+  sin networkx ni ninguna libreria de grafos.
 - **Graphviz:** solo renderiza. El backend genera el texto **DOT a mano** y
   lo convierte a PNG invocando el binario `dot -Tpng`. Requiere Graphviz
   instalado (`dot -V`).
-- **Datos:** solo en memoria (map de usuarios, vector de solicitudes, grafo).
+- **Datos:** solo en memoria (lista de usuarios, lista de solicitudes, grafo).
   Al apagar el servidor todo se pierde. `POST /api/reset` vacia el estado
   (util para el laboratorio).
 
@@ -41,6 +42,7 @@ sobre todo, como se ejecuta.
 
 | Capa | Archivos | Responsabilidad |
 |---|---|---|
+| Modelo | `src/models/Lista.{h}` | `Lista<T>` enlazada simple hecha a mano (`new`/`delete`, cabeza + cola, `push_back`, `tam`, `operator[]`) + `Par` clave=valor: base de grafo, solicitudes, query strings y rutas (cero `std::vector`/`std::map`) |
 | Modelo | `src/models/Grafo.{h,cpp}` | Grafo no dirigido: `agregarVertice`, `agregarArista` (ambos sentidos), `obtenerAmigos`, `amigosEnComun`, `redDeUsuario` (yo + directos + 2.º nivel), `toDotRed`, `toDotCompleto` |
 | Modelo | `src/models/Store.{h,cpp}` | Singleton con `usuarios`, `solicitudes`, `grafo` y mutex (multihilo) |
 | Controlador | `src/controllers/AuthController` | `registro(nombre, correo, password)`, `login(correo, password)` con hash SHA-256 |

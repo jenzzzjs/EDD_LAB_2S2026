@@ -20,7 +20,7 @@ Result redDeUsuario(const std::string& correo) {
     std::string c = toLowerStr(trimStr(correo));
     Store& st = Store::get();
     std::lock_guard<std::mutex> lock(st.mtx);
-    if (st.usuarios.find(c) == st.usuarios.end())
+    if (st.buscarUsuario(c) < 0)
         return {404, errJson("usuario no encontrado")};
 
     RedUsuario red = st.grafo.redDeUsuario(c);
@@ -28,25 +28,25 @@ Result redDeUsuario(const std::string& correo) {
 
     std::string body = "{\"ok\":true,";
     body += "\"yo\":" + verticeJson(red.yo) + ",\"amigos\":[";
-    for (size_t i = 0; i < red.amigos.size(); i++) {
+    for (size_t i = 0; i < red.amigos.tam(); i++) {
         if (i > 0) body += ",";
         body += verticeJson(red.amigos[i]);
     }
     body += "],\"amigos_en_comun\":[";
-    for (size_t i = 0; i < red.enComun.size(); i++) {
+    for (size_t i = 0; i < red.enComun.tam(); i++) {
         if (i > 0) body += ",";
         body += "{\"nombre\":" + json::str(red.enComun[i].nombre) + ",\"correo\":" +
                 json::str(red.enComun[i].correo) + ",\"conecta_con\":[";
-        for (size_t j = 0; j < red.enComun[i].conectaCon.size(); j++) {
+        for (size_t j = 0; j < red.enComun[i].conectaCon.tam(); j++) {
             if (j > 0) body += ",";
             body += json::str(red.enComun[i].conectaCon[j]);
         }
         body += "]}";
     }
     body += "],\"aristas\":[";
-    for (size_t i = 0; i < red.aristas.size(); i++) {
+    for (size_t i = 0; i < red.aristas.tam(); i++) {
         if (i > 0) body += ",";
-        body += "[" + json::str(red.aristas[i].first) + "," + json::str(red.aristas[i].second) + "]";
+        body += "[" + json::str(red.aristas[i].a) + "," + json::str(red.aristas[i].b) + "]";
     }
     body += "],\"dot\":" + json::str(dot) + ",";
     body += "\"colores\":{\"yo\":\"verde #22c55e\",\"amigos\":\"azul #2563eb\","
@@ -72,18 +72,18 @@ Result grafoCompleto() {
     Store& st = Store::get();
     std::lock_guard<std::mutex> lock(st.mtx);
     std::string dot = st.grafo.toDotCompleto();
-    std::vector<Vertice> vs = st.grafo.todosLosVertices();
-    std::vector<std::pair<std::string, std::string>> ar = st.grafo.todasLasAristas();
+    Lista<Vertice> vs = st.grafo.todosLosVertices();
+    Lista<Arista> ar = st.grafo.todasLasAristas();
 
     std::string body = "{\"ok\":true,\"vertices\":[";
-    for (size_t i = 0; i < vs.size(); i++) {
+    for (size_t i = 0; i < vs.tam(); i++) {
         if (i > 0) body += ",";
         body += verticeJson(vs[i]);
     }
     body += "],\"aristas\":[";
-    for (size_t i = 0; i < ar.size(); i++) {
+    for (size_t i = 0; i < ar.tam(); i++) {
         if (i > 0) body += ",";
-        body += "[" + json::str(ar[i].first) + "," + json::str(ar[i].second) + "]";
+        body += "[" + json::str(ar[i].a) + "," + json::str(ar[i].b) + "]";
     }
     body += "],\"dot\":" + json::str(dot);
     std::string png = graphviz::renderDotAPng(dot);
@@ -101,7 +101,7 @@ Result redPng(const std::string& correo) {
     std::string c = toLowerStr(trimStr(correo));
     Store& st = Store::get();
     std::lock_guard<std::mutex> lock(st.mtx);
-    if (st.usuarios.find(c) == st.usuarios.end())
+    if (st.buscarUsuario(c) < 0)
         return {404, errJson("usuario no encontrado")};
     std::string dot = st.grafo.toDotRed(c);
     std::string png = graphviz::renderDotAPng(dot);

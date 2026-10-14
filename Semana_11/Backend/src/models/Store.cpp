@@ -7,9 +7,16 @@ Store& Store::get() {
     return inst;
 }
 
+// Busca el correo recorriendo la lista (sin map, a puro ciclo).
+int Store::buscarUsuario(const std::string& correo) const {
+    for (size_t i = 0; i < usuarios.tam(); i++)
+        if (usuarios[i].correo == correo) return (int)i;
+    return -1;
+}
+
 // Borra usuarios, solicitudes y deja un grafo nuevecito.
 void Store::reset() {
-    usuarios.clear();
-    solicitudes.clear();
+    usuarios.limpiar();
+    solicitudes.limpiar();
     grafo = GrafoNoDirigido();
 }

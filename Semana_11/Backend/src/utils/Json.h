@@ -5,7 +5,8 @@
 #pragma once
 
 #include <string>
-#include <map>
+
+#include "../models/Lista.h"
 
 namespace json {
 
@@ -16,8 +17,9 @@ std::string str(const std::string& s);  // string con comillas y escapes
 // Tolera espacios. Retorna "" si no existe. Maneja \" y \\ basicos.
 std::string getString(const std::string& body, const std::string& key);
 
-// Query string: "a=1&b=x%40y" -> mapa (aplica URL-decode, + -> espacio).
-std::map<std::string, std::string> parseQuery(const std::string& qs);
+// Query string: "a=1&b=x%40y" -> lista de pares (aplica URL-decode,
+// + -> espacio). Se busca con un ciclo, sin std::map.
+Lista<Par> parseQuery(const std::string& qs);
 std::string urlDecode(const std::string& s);
 
 }  // namespace json

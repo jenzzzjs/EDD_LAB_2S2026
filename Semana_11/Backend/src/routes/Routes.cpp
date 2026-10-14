@@ -11,8 +11,10 @@ namespace Routes {
 
 // Saca un query param (?correo=...) ya con URL-decode aplicado.
 static std::string q(const HttpRequest& req, const std::string& key) {
-    auto it = req.query.find(key);
-    return it == req.query.end() ? "" : it->second;
+    for (size_t i = 0; i < req.query.tam(); i++) {
+        if (req.query[i].clave == key) return req.query[i].valor;
+    }
+    return "";
 }
 
 // Aqui se conectan las URLs con los controladores: cada ruta saca sus

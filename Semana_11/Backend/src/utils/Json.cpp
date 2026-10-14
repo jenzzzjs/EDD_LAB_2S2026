@@ -117,8 +117,8 @@ std::string urlDecode(const std::string& s) {
     return out;
 }
 
-std::map<std::string, std::string> parseQuery(const std::string& qs) {
-    std::map<std::string, std::string> m;
+Lista<Par> parseQuery(const std::string& qs) {
+    Lista<Par> l;
     size_t i = 0;
     while (i <= qs.size()) {
         size_t j = qs.find('&', i);
@@ -126,12 +126,12 @@ std::map<std::string, std::string> parseQuery(const std::string& qs) {
         std::string par = qs.substr(i, j - i);
         size_t eq = par.find('=');
         if (eq != std::string::npos)
-            m[urlDecode(par.substr(0, eq))] = urlDecode(par.substr(eq + 1));
+            l.push_back(Par{urlDecode(par.substr(0, eq)), urlDecode(par.substr(eq + 1))});
         else if (!par.empty())
-            m[urlDecode(par)] = "";
+            l.push_back(Par{urlDecode(par), ""});
         i = j + 1;
     }
-    return m;
+    return l;
 }
 
 }  // namespace json
