@@ -41,7 +41,7 @@ export function RedAmigosViewer({ correo }: Props) {
   return (
     <Card className="p-5">
       <CardHeader
-        title="Red de amigos (Graphviz)"
+        title="Red de amigos"
         icon={<Network size={15} className="text-accent" />}
         action={
           <button
@@ -80,26 +80,32 @@ export function RedAmigosViewer({ correo }: Props) {
             <Badge tone="neutral">{red.amigos_en_comun.length} en común</Badge>
           </div>
           {red.imagen_base64 ? (
-            <img
-              src={`data:image/png;base64,${red.imagen_base64}`}
-              alt="Grafo no dirigido de la red de amigos"
-              className="w-full rounded-lg border border-hairline bg-white"
-            />
+            <div className="relative h-[300px] w-full overflow-hidden rounded-lg border border-hairline bg-white sm:h-[360px]">
+              <img
+                src={`data:image/png;base64,${red.imagen_base64}`}
+                alt="Grafo no dirigido de la red de amigos"
+                loading="lazy"
+                className="h-full w-full object-contain p-2"
+              />
+            </div>
           ) : (
             <div className="flex flex-col gap-2">
               <p className="text-xs text-ink-subtle">
-                {red.advertencia ?? 'Graphviz no disponible en el servidor.'}
+                {red.advertencia ?? 'No se pudo generar la imagen de la red.'}
               </p>
-              <img
-                src={api.redPngUrl(correo)}
-                alt="Grafo no dirigido de la red de amigos"
-                className="w-full rounded-lg border border-hairline bg-white"
-              />
+              <div className="relative h-[300px] w-full overflow-hidden rounded-lg border border-hairline bg-white sm:h-[360px]">
+                <img
+                  src={api.redPngUrl(correo)}
+                  alt="Grafo no dirigido de la red de amigos"
+                  loading="lazy"
+                  className="h-full w-full object-contain p-2"
+                />
+              </div>
             </div>
           )}
           <details className="rounded-lg border border-hairline bg-canvas p-3">
             <summary className="cursor-pointer text-xs font-medium text-ink-muted">
-              Ver DOT generado (grafo no dirigido)
+              Ver detalle de la red
             </summary>
             <pre className="mt-2 max-h-48 overflow-auto font-mono text-[11px] leading-relaxed text-ink-subtle">
               {red.dot}

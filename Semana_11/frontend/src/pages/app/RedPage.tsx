@@ -133,9 +133,9 @@ export function RedPage() {
     <div className="flex flex-col gap-6">
       <PageHeader
         breadcrumbs={[{ label: 'FaceJens' }, { label: 'Topología social' }, { label: 'Malla' }]}
-        eyebrow="Topología social (backend)"
+        eyebrow="Topología social"
         title="Malla de conexiones"
-        description="Tu red real servida por el backend C++: nodos posicionados desde el grafo no dirigido."
+        description="Tu red real: nodos posicionados desde el grafo no dirigido."
         chips={
           <>
             <Badge tone="success">
@@ -244,7 +244,7 @@ export function RedPage() {
               <CardHeader
                 title="Telemetría de red"
                 icon={<Gauge size={15} className="text-ink-subtle" />}
-                action={<Badge tone="success">backend C++</Badge>}
+                action={<Badge tone="success">en vivo</Badge>}
               />
               <div className="mt-4 grid grid-cols-2 gap-2">
                 {telemetry.map((item) => (
