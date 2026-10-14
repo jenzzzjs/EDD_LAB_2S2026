@@ -38,6 +38,30 @@ export function TopologyGraph({
   const byId = new Map(nodes.map((node) => [node.id, node]))
   const labels = showLabels && !compact
 
+  // Arista curva (cuadrática) en vez de recta: el punto de control se empuja
+  // hacia afuera del centro para que las aristas se abran en abanico y no
+  // se encimen. `curve` mayor = arco más abierto (anillo-anillo).
+  const edgePath = (
+    ax: number,
+    ay: number,
+    bx: number,
+    by: number,
+    curve: number,
+  ): string => {
+    const mx = (ax + bx) / 2
+    const my = (ay + by) / 2
+    const dx = bx - ax
+    const dy = by - ay
+    const len = Math.hypot(dx, dy) || 1
+    let nx = -dy / len
+    let ny = dx / len
+    if (nx * (mx - 50) + ny * (my - 50) < 0) {
+      nx = -nx
+      ny = -ny
+    }
+    return `M ${ax} ${ay} Q ${mx + nx * curve} ${my + ny * curve} ${bx} ${by}`
+  }
+
   return (
     <svg
       viewBox="0 0 100 100"
@@ -53,20 +77,19 @@ export function TopologyGraph({
         </radialGradient>
       </defs>
 
-      {/* Aristas */}
+      {/* Aristas curvas: cada una se abre hacia afuera */}
       {edges.map(([from, to], index) => {
         const a = byId.get(from)
         const b = byId.get(to)
         if (!a || !b) return null
         const active =
           selectedId !== null && (from === selectedId || to === selectedId)
+        const tocaHub = a.group === 'yo' || b.group === 'yo'
         return (
-          <motion.line
+          <motion.path
             key={`${from}-${to}`}
-            x1={a.x}
-            y1={a.y}
-            x2={b.x}
-            y2={b.y}
+            d={edgePath(a.x, a.y, b.x, b.y, tocaHub ? 4.5 : 10)}
+            fill="none"
             stroke={active ? EDGE_ACTIVE : EDGE}
             strokeWidth={active ? 0.5 : 0.35}
             strokeDasharray={resonance ? '2 2' : undefined}

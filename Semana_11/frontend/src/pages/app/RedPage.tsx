@@ -40,17 +40,24 @@ function construirNodos(red: RedUsuario): GraphNode[] {
       group: 'yo',
     })
   }
-  const anillo = (total: number, i: number, radio: number): [number, number] => {
-    if (total === 1) return [50, 50 - radio]
-    const ang = (2 * Math.PI * i) / total - Math.PI / 2
+  const anillo = (
+    total: number,
+    i: number,
+    radio: number,
+    desfase: number,
+  ): [number, number] => {
+    if (total === 1) return [50 + radio * Math.cos(desfase), 50 + radio * Math.sin(desfase)]
+    // Angulo dorado (~137.5°): reparte sin dejar nodos diametralmente
+    // opuestos, asi las aristas no se enciman en una sola linea.
+    const ang = desfase + i * 2.399963
     return [50 + radio * Math.cos(ang), 50 + radio * Math.sin(ang)]
   }
   red.amigos.forEach((a, i) => {
-    const [x, y] = anillo(red.amigos.length, i, 26)
+    const [x, y] = anillo(red.amigos.length, i, 26, -Math.PI / 2)
     nodos.push({ id: a.correo, label: a.nombre, x, y, r: 6, status: 'online', group: 'amigos' })
   })
   red.amigos_en_comun.forEach((a, i) => {
-    const [x, y] = anillo(red.amigos_en_comun.length, i, 40)
+    const [x, y] = anillo(red.amigos_en_comun.length, i, 40, -Math.PI / 2 + 0.9)
     nodos.push({ id: a.correo, label: a.nombre, x, y, r: 4, status: 'online', group: 'comunidad' })
   })
   return nodos
