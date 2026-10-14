@@ -10,6 +10,7 @@ import { Button } from '../../components/atoms/Button'
 import { Card, CardHeader } from '../../components/atoms/Card'
 import { Input } from '../../components/atoms/Input'
 import { SearchBar } from '../../components/molecules/SearchBar'
+import { useToast } from '../../components/molecules/Toast'
 
 function amigoABackend(nombre: string, correo: string, index: number): Friend {
   return {
@@ -41,9 +42,8 @@ export function GestionPage() {
   const [pendientes, setPendientes] = useState<SolicitudPendiente[]>([])
   const [enviadasCount, setEnviadasCount] = useState(0)
   const [pendingDelete, setPendingDelete] = useState<Friend | null>(null)
-  const [formMsg, setFormMsg] = useState<string | null>(null)
-  const [formError, setFormError] = useState<string | null>(null)
   const [cargando, setCargando] = useState(true)
+  const toast = useToast()
 
   const refrescar = useCallback(async () => {
     if (!correo) return
@@ -80,16 +80,17 @@ export function GestionPage() {
   // a cada uno con es_amigo para saber si ponerle "Añadir amigo" o "Amigo".
   async function buscarPorNombre(event: React.FormEvent) {
     event.preventDefault()
-    setFormMsg(null)
-    setFormError(null)
     if (!nombreBusqueda.trim()) return
     setBuscando(true)
     try {
       const res = await api.usuarios(correo, nombreBusqueda.trim())
       setResultados(res.usuarios)
       setBuscoAlgunaVez(true)
+      if (res.usuarios.length === 0) {
+        toast.info('Sin coincidencias', `Nadie coincide con "${nombreBusqueda.trim()}"`)
+      }
     } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'No se pudo buscar')
+      toast.error('No se pudo buscar', err instanceof Error ? err.message : undefined)
     } finally {
       setBuscando(false)
     }
@@ -98,26 +99,28 @@ export function GestionPage() {
   // Manda la solicitud y saca a la persona de los resultados para no
   // duplicarla en pantalla. Si ya habia algo pendiente, el backend avisa.
   async function enviarSolicitudA(destino: string) {
-    setFormMsg(null)
-    setFormError(null)
+    toast.sending('Enviando solicitud…', destino)
     try {
       await api.enviarSolicitud(correo, destino)
-      setFormMsg(`Solicitud enviada a ${destino}`)
+      toast.success('Solicitud enviada', destino)
       setResultados((prev) => prev.filter((r) => r.correo !== destino))
       await refrescar()
     } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'No se pudo enviar')
+      toast.error('No se pudo enviar', err instanceof Error ? err.message : undefined)
     }
   }
 
   async function responder(de: string, accion: 'aceptar' | 'rechazar') {
-    setFormError(null)
     try {
       if (accion === 'aceptar') await api.aceptar(de, correo)
       else await api.rechazar(de, correo)
+      toast.success(
+        accion === 'aceptar' ? 'Amistad aceptada' : 'Solicitud rechazada',
+        de,
+      )
       await refrescar()
     } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'No se pudo responder')
+      toast.error('No se pudo responder', err instanceof Error ? err.message : undefined)
     }
   }
 
@@ -135,17 +138,6 @@ export function GestionPage() {
           {list.length} amigos · {pendientes.length} solicitudes · {enviadasCount} enviadas
         </p>
       </header>
-
-      {formError ? (
-        <p className="rounded-xl border border-danger/30 bg-danger/10 px-4 py-2.5 text-[13px] text-danger">
-          {formError}
-        </p>
-      ) : null}
-      {formMsg ? (
-        <p className="rounded-xl border border-success/30 bg-success/10 px-4 py-2.5 text-[13px] text-success">
-          {formMsg}
-        </p>
-      ) : null}
 
       {/* Buscar personas */}
       <Card className="overflow-hidden">

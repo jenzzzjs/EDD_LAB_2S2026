@@ -7,6 +7,7 @@ import { api } from '../../lib/api'
 import type { Amigo, SolicitudPendiente } from '../../lib/api'
 import { Avatar } from '../../components/atoms/Avatar'
 import { SearchBar } from '../../components/molecules/SearchBar'
+import { useToast } from '../../components/molecules/Toast'
 import { RedAmigosViewer } from '../../components/organisms/app/RedAmigosViewer'
 import { cn } from '../../lib/cn'
 
@@ -42,7 +43,7 @@ export function InicioPage() {
   const [enComun, setEnComun] = useState(0)
   const [enviando, setEnviando] = useState<string[]>([])
   const [cargando, setCargando] = useState(true)
-  const [tabError, setTabError] = useState<string | null>(null)
+  const toast = useToast()
 
   // Todo lo que la pagina necesita sale del backend de un solo jalon:
   // amigos, sugeridos (los que no son amigos), pendientes, enviadas y la
@@ -91,25 +92,36 @@ export function InicioPage() {
   // Añadir amigo = mandar solicitud, que queda pendiente hasta que el
   // acepte (ahi si nace la arista en el grafo del backend).
   async function conectar(destino: string) {
+    toast.sending('Enviando solicitud…', destino)
     try {
       await api.enviarSolicitud(correo, destino)
       setEnviando((prev) => [...prev, destino])
+      toast.success('Solicitud enviada', destino)
       await refrescar()
-    } catch {
-      /* Gestion muestra el detalle del error */
+    } catch (err) {
+      toast.error(
+        'No se pudo enviar',
+        err instanceof Error ? err.message : undefined,
+      )
     }
   }
 
   // Responder una solicitud desde la pestana: aceptar crea la amistad,
   // rechazar la cierra. Despues se refresca todo para que cuadre.
   async function responder(de: string, accion: 'aceptar' | 'rechazar') {
-    setTabError(null)
     try {
       if (accion === 'aceptar') await api.aceptar(de, correo)
       else await api.rechazar(de, correo)
+      toast.success(
+        accion === 'aceptar' ? 'Amistad aceptada' : 'Solicitud rechazada',
+        de,
+      )
       await refrescar()
     } catch (err) {
-      setTabError(err instanceof Error ? err.message : 'No se pudo responder')
+      toast.error(
+        'No se pudo responder',
+        err instanceof Error ? err.message : undefined,
+      )
     }
   }
 
@@ -236,12 +248,6 @@ export function InicioPage() {
             SOLICITUDES
           </TabButton>
         </div>
-
-        {tabError ? (
-          <p className="mt-3 rounded-lg border border-danger/30 bg-danger/10 px-3 py-2 text-[13px] text-danger">
-            {tabError}
-          </p>
-        ) : null}
 
         {tab === 'amigos' ? (
           <div className="flex flex-col gap-4 pt-5">
