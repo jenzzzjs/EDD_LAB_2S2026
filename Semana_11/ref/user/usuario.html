@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#dae2fd", "outline-variant": "#464554", "on-error-container": "#ffdad6", "on-primary": "#1000a9", "secondary-fixed-dim": "#ffb0cd", "on-primary-fixed": "#07006c", "secondary": "#ffb0cd", "on-tertiary-container": "#340080", "surface-container-high": "#222a3d", "on-primary-container": "#0d0096", "primary-container": "#8083ff", "surface-variant": "#2d3449", "surface-dim": "#0b1326", "background": "#0b1326", "on-surface": "#dae2fd", "error-container": "#93000a", "surface-container-low": "#131b2e", "inverse-on-surface": "#283044", "on-error": "#690005", "tertiary-fixed-dim": "#d0bcff", "on-tertiary-fixed": "#23005c", "surface-container": "#171f33", "outline": "#908fa0", "secondary-container": "#aa0266", "on-surface-variant": "#c7c4d7", "inverse-primary": "#494bd6", "on-secondary-fixed": "#3e0022", "surface-tint": "#c0c1ff", "surface-container-lowest": "#060e20", "tertiary": "#d0bcff", "on-tertiary-fixed-variant": "#5516be", "tertiary-fixed": "#e9ddff", "secondary-fixed": "#ffd9e4", "primary": "#c0c1ff", "error": "#ffb4ab", "on-tertiary": "#3c0091", "on-background": "#dae2fd", "on-secondary": "#640039", "tertiary-container": "#a078ff", "on-primary-fixed-variant": "#2f2ebe", "primary-fixed-dim": "#c0c1ff", "surface": "#0b1326", "primary-fixed": "#e1e0ff", "on-secondary-container": "#ffbad3", "on-secondary-fixed-variant": "#8c0053", "surface-bright": "#31394d", "surface-container-highest": "#2d3449" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "margin-mobile": "1rem", "margin": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "1rem", "gutter": "1.5rem", "space-xl": "2.5rem", "space-lg": "1.5rem" }, "fontFamily": { "headline-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "display-hero-mobile": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"] }, "fontSize": { "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(6,14,32,0.60)]"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><a class="flex items-center gap-space-sm group" data-path="inicio" href="#"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-container to-tertiary-container flex items-center justify-center shadow-[0_0_20px_rgba(128,131,255,0.45)]"><span class="material-symbols-outlined text-on-primary-container text-[22px]">hub</span></div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Nexus<span class="text-primary">Net</span></span></a><nav class="hidden md:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-title-md"><a class="px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="inicio" href="#">Inicio</a><a aria-current="page" class="px-space-md py-space-xs rounded-xl transition-all bg-surface-container-high text-on-surface font-title-md" data-path="amigos" href="#">Amigos</a><a class="px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="gestion" href="#">Gestión</a><a class="px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="red-de-nodos" href="#">Red de Nodos</a></nav></div><div class="flex items-center gap-space-md flex-1 max-w-md justify-end"><div class="relative w-full max-w-xs hidden sm:block"><span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full h-10 pl-10 pr-space-md rounded-full bg-surface-container-low/80 text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container focus:shadow-[0_0_16px_rgba(192,193,255,0.25)] transition-all" placeholder="Explorar nodos y creadores..." type="text"/></div><button aria-label="Notificaciones" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low/80 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="relative flex items-center"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(192,193,255,0.3)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-secondary-container ring-2 ring-surface-container-lowest"></span></div></div></div></header><main class="w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive script for filtering and quick actions -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mark active nav in shell if present
+      const navLinks = document.querySelectorAll('header nav a');
+      navLinks.forEach(link => {
+        if (link.getAttribute('data-path') === 'amigos') {
+          link.className = 'px-space-md py-space-xs rounded-xl font-title-md text-title-md bg-surface-container-high text-on-surface shadow-[0_0_16px_rgba(192,193,255,0.18)] transition-all';
+        }
+      });
+
+      // Filter tabs interaction
+      const tabs = document.querySelectorAll('[data-filter-tab]');
+      const cards = document.querySelectorAll('[data-friend-status]');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.preventDefault();
+          tabs.forEach(t => {
+            t.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_20px_rgba(128,131,255,0.35)]');
+            t.classList.add('bg-surface-container-low/70', 'text-on-surface-variant');
+          });
+          tab.classList.remove('bg-surface-container-low/70', 'text-on-surface-variant');
+          tab.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_20px_rgba(128,131,255,0.35)]');
+
+          const filter = tab.getAttribute('data-filter-tab');
+          cards.forEach(card => {
+            if (filter === 'todos') {
+              card.style.display = 'flex';
+            } else if (filter === 'online') {
+              card.style.display = card.getAttribute('data-friend-status') === 'online' ? 'flex' : 'none';
+            } else if (filter === 'recientes') {
+              card.style.display = card.getAttribute('data-friend-recent') === 'true' ? 'flex' : 'none';
+            }
+          });
+        });
+      });
+
+      // Search input filter
+      const searchInput = document.getElementById('friendSearchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase();
+          cards.forEach(card => {
+            const name = card.querySelector('[data-friend-name]')?.textContent.toLowerCase() || '';
+            const handle = card.querySelector('[data-friend-handle]')?.textContent.toLowerCase() || '';
+            const role = card.querySelector('[data-friend-role]')?.textContent.toLowerCase() || '';
+            if (name.includes(query) || handle.includes(query) || role.includes(query)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      }
+    });
+  </script>
+<!-- Ambient Light Backdrops (contained) -->
+<div class="relative w-full overflow-hidden px-margin-mobile md:px-margin py-space-lg md:py-space-xl">
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-container/15 blur-[120px] pointer-events-none"></div>
+<div class="absolute top-1/3 -right-32 w-[28rem] h-[28rem] rounded-full bg-secondary-container/10 blur-[140px] pointer-events-none"></div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-tertiary-container/10 blur-[130px] pointer-events-none"></div>
+<!-- Main Container -->
+<div class="max-w-[1440px] mx-auto w-full flex flex-col gap-space-lg relative z-10">
+<!-- Section Header & Metrics Bar -->
+<section class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md p-space-lg rounded-xl bg-surface-container-low/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(6,14,32,0.45)]">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px] mr-1">group_work</span> Nodos Vinculados
+            </span>
+<span class="text-outline text-body-sm font-body-sm">/ Protocolo v4.2</span>
+</div>
+<div class="flex flex-wrap items-baseline gap-space-md mt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Mis Amigos</h1>
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-high/80 text-on-surface-variant font-label-md text-label-md">
+<span class="w-2.5 h-2.5 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]"></span>
+<span class="text-on-surface font-title-md text-title-md font-semibold">18 amigos conectados</span>
+<span class="text-outline">• 42 en red total</span>
+</div>
+</div>
+</div>
+<!-- Add Friend Primary CTA & Quick Metrics -->
+<div class="flex items-center gap-space-md flex-wrap sm:flex-nowrap">
+<div class="hidden sm:flex items-center gap-space-md pr-space-md">
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-outline">Latencia de Red</span>
+<span class="font-title-md text-title-md text-primary font-bold">14 ms avg</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">speed</span>
+</div>
+</div>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm px-space-lg py-3 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-title-md text-title-md shadow-[0_0_24px_rgba(128,131,255,0.4)] hover:shadow-[0_0_32px_rgba(170,2,102,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span>+ Agregar amigo</span>
+</button>
+</div>
+</section>
+<!-- Search, Quick Filters & Segment Controls -->
+<section class="flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Search bar -->
+<div class="relative w-full md:max-w-md">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[20px]">manage_search</span>
+<input class="w-full h-12 pl-12 pr-space-md rounded-full bg-surface-container-low/80 text-on-surface placeholder:text-outline font-body-md text-body-md shadow-sm focus:outline-none focus:bg-surface-container focus:shadow-[0_0_20px_rgba(192,193,255,0.3)] transition-all" id="friendSearchInput" placeholder="Buscar por nombre, @usuario o especialidad..." type="text"/>
+</div>
+<!-- Filter tabs & View toggle -->
+<div class="flex items-center gap-space-sm w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+<div class="flex items-center p-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md">
+<button class="px-space-md py-2 rounded-full font-label-md text-label-md transition-all bg-primary-container text-on-primary-container shadow-[0_0_20px_rgba(128,131,255,0.35)]" data-filter-tab="todos">
+              Todos (42)
+            </button>
+<button class="px-space-md py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5" data-filter-tab="online">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+              En línea (18)
+            </button>
+<button class="px-space-md py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" data-filter-tab="recientes">
+              Recientes
+            </button>
+</div>
+<div class="hidden sm:flex items-center gap-1 pl-space-sm">
+<button aria-label="Vista cuadrícula" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+</button>
+<button aria-label="Vista lista" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low text-outline hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[20px]">view_list</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Main Layout: Central Grid + Right Activity & Suggested Rail -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Central Friends Grid (8 Columns on xl) -->
+<main class="xl:col-span-8 flex flex-col gap-space-lg">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-space-md" id="friendsGrid">
+<!-- Friend Card 1: Elena Rostova -->
+<article class="group flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low/75 backdrop-blur-xl hover:bg-surface-container-low shadow-[0_8px_24px_rgba(6,14,32,0.35)] hover:shadow-[0_12px_32px_rgba(128,131,255,0.22)] transition-all" data-friend-recent="true" data-friend-status="online">
+<div>
+<!-- Card Header: Avatar + Status + Overflow Menu -->
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover shadow-[0_0_16px_rgba(192,193,255,0.25)]" data-alt="Modern close-up portrait of Elena Rostova, creative cyber-aesthetic digital interface designer with soft indigo rim lighting, wearing sleek geometric glasses against a dark cosmic background, 8k photographic render." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaDk3xLZkTMnloNDe4427vff2h1yTho3kUcsEpj77yyMhtKFW3FKd7vQGyie1PtOMWwl7GUW_I0w31yRzGmdLJig_bsSBEFlqP_HgiqbZjnTzIUov1IeB7HJesVIiYODaTg4QcgLYtnx8wxZ5MRMQDXKyuAiXH6MROuT6PD4My8MDQNGj_GGlFdeCKczIhLFTWTIeQhXvLj2VCH9mg11QXbjw3201IT-HtcP9Qqmk"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-[#10B981] shadow-[0_0_10px_#10B981] flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-[#10B981]/15 text-[#10B981] font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-ping"></span>
+                      En línea
+                    </span>
+<button aria-label="Opciones rápidas" class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Info Block -->
+<div class="flex flex-col gap-0.5 mb-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors flex items-center gap-1" data-friend-name="Elena Rostova">
+                    Elena Rostova
+                    <span class="material-symbols-outlined text-primary text-[18px]" title="Verificada">verified</span>
+</h3>
+<span class="font-body-sm text-body-sm text-outline" data-friend-handle="@elena_ux">@elena_ux</span>
+</div>
+<!-- Role Chip -->
+<div class="flex flex-wrap items-center gap-space-xs mb-space-md">
+<span class="px-2.5 py-1 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm" data-friend-role="Diseñadora UI">
+                    Diseñadora UI
+                  </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                    Design Systems
+                  </span>
+</div>
+<!-- Mutual Connections Indicator -->
+<div class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container/60 mb-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+<span class="font-semibold text-on-surface">14 nodos</span> en común con tu red
+                </div>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-space-md rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-label-md text-label-md shadow-[0_0_16px_rgba(128,131,255,0.3)] hover:shadow-[0_0_24px_rgba(128,131,255,0.5)] transition-all">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span>Enviar Mensaje</span>
+</button>
+<button aria-label="Compartir nodo" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Compartir nodo">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</article>
+<!-- Friend Card 2: Carlos Mendoza -->
+<article class="group flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low/75 backdrop-blur-xl hover:bg-surface-container-low shadow-[0_8px_24px_rgba(6,14,32,0.35)] hover:shadow-[0_12px_32px_rgba(128,131,255,0.22)] transition-all" data-friend-recent="false" data-friend-status="online">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover shadow-[0_0_16px_rgba(192,193,255,0.25)]" data-alt="Editorial cinematic profile picture of Carlos Mendoza, a senior Web3 smart contract developer, confident expression, ambient magenta and midnight violet studio backlighting, high detail digital portrait." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrphi_zl-MsvJNXWIg3rMmWZ4GFeUOErM6hj6jp2piPihJvvd-oU-jF1hUh0ebk211ihiKJqyJ-rLJaPopCXsJZj8jBZZ52Dbu76KBKjRLWvPX7JVmXjBrfPvCCmGrp3uCFrnZK7xyHBN9Uv533orrStoAOTISIGMPVaQNiA6saUKKPOOpeEqWF-S7v2Wi-1D025zwIcVlpsLjkGeckquV6Pf-2E-P-l3aDqo6MFE"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-[#10B981] shadow-[0_0_10px_#10B981] flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-[#10B981]/15 text-[#10B981] font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                      En línea
+                    </span>
+<button aria-label="Opciones rápidas" class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-0.5 mb-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors" data-friend-name="Carlos Mendoza">Carlos Mendoza</h3>
+<span class="font-body-sm text-body-sm text-outline" data-friend-handle="@cmendoza_eth">@cmendoza_eth</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs mb-space-md">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm" data-friend-role="Dev Web3">
+                    Dev Web3
+                  </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                    Rust &amp; Solidity
+                  </span>
+</div>
+<div class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container/60 mb-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+<span class="font-semibold text-on-surface">28 nodos</span> en común con tu red
+                </div>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-space-md rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-label-md text-label-md shadow-[0_0_16px_rgba(128,131,255,0.3)] hover:shadow-[0_0_24px_rgba(128,131,255,0.5)] transition-all">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span>Enviar Mensaje</span>
+</button>
+<button aria-label="Compartir nodo" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Compartir nodo">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</article>
+<!-- Friend Card 3: Aoi Tanaka -->
+<article class="group flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low/75 backdrop-blur-xl hover:bg-surface-container-low shadow-[0_8px_24px_rgba(6,14,32,0.35)] hover:shadow-[0_12px_32px_rgba(128,131,255,0.22)] transition-all" data-friend-recent="true" data-friend-status="online">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover shadow-[0_0_16px_rgba(192,193,255,0.25)]" data-alt="Stylized portrait of Aoi Tanaka, Japanese AI researcher with sleek dark hair, neon cybernetic accents in background, ambient deep indigo studio lighting, ultra modern high fashion tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDomIPf43DoNzW1E2bC61hemMdQSsFcx1F87g6FNC46TdshtmuqlNuQy01aau1tTJVTo87H6LU2CSKD1AXECm_HuLeQmg_8O9shOJiv5vPdWnkntiGloYbqkj_HPYvgO0g_CoVJqwN416wZGRO-bbccYv3iB7p-mLBXXRWnqDC_Q6x9nYwncwD_PZAIUzU86zKiEduEIxZdG5ZfXiYftKvxCLoQwoGf--MWrTMf3iA"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-[#10B981] shadow-[0_0_10px_#10B981] flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-[#10B981]/15 text-[#10B981] font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                      En línea
+                    </span>
+<button aria-label="Opciones rápidas" class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-0.5 mb-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors flex items-center gap-1" data-friend-name="Aoi Tanaka">
+                    Aoi Tanaka
+                    <span class="material-symbols-outlined text-secondary text-[18px]">auto_awesome</span>
+</h3>
+<span class="font-body-sm text-body-sm text-outline" data-friend-handle="@aoi_neuro">@aoi_neuro</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs mb-space-md">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm" data-friend-role="AI Researcher">
+                    AI Researcher
+                  </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                    Neural Graphs
+                  </span>
+</div>
+<div class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container/60 mb-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+<span class="font-semibold text-on-surface">32 nodos</span> en común con tu red
+                </div>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-space-md rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-label-md text-label-md shadow-[0_0_16px_rgba(128,131,255,0.3)] hover:shadow-[0_0_24px_rgba(128,131,255,0.5)] transition-all">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span>Enviar Mensaje</span>
+</button>
+<button aria-label="Compartir nodo" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Compartir nodo">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</article>
+<!-- Friend Card 4: David Kim -->
+<article class="group flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low/75 backdrop-blur-xl hover:bg-surface-container-low shadow-[0_8px_24px_rgba(6,14,32,0.35)] hover:shadow-[0_12px_32px_rgba(128,131,255,0.15)] transition-all opacity-90 hover:opacity-100" data-friend-recent="false" data-friend-status="offline">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover filter grayscale-[20%]" data-alt="Intense high-definition portrait of David Kim, digital creator and documentary photographer, wearing high neck minimal tech apparel, cinematic shadows, soft moody blue tint." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc5hpTLlfo8STTJwg5ZVJvLt0a2SgbJWzyeCZ-_uBm3bsJWTa1cV3if4iuxWnAFb-SEHwWsjCzN8sm2qs-KB1yrjO2g_NYJF0SJck4akMkm1nKyx0uS2WO9b5nRp8QDCYsAC-eh7kv2nNJwBjXWqpOYtgZsMU7ZCQEi6h5QDeXGg3YfjhwnKzT3GcTepfq51KJj7LGQhpHaViz6RKvXq8az53S1U3tpnWCvRMC-Tw"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-outline flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high text-outline font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                      Desconectado
+                    </span>
+<button aria-label="Opciones rápidas" class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-0.5 mb-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors" data-friend-name="David Kim">David Kim</h3>
+<span class="font-body-sm text-body-sm text-outline" data-friend-handle="@dkim_visuals">@dkim_visuals</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs mb-space-md">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm" data-friend-role="Fotógrafo">
+                    Fotógrafo
+                  </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                    Visual Art
+                  </span>
+</div>
+<div class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container/60 mb-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+<span class="font-semibold text-on-surface">9 nodos</span> en común con tu red
+                </div>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-space-md rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>
+<span>Dejar Mensaje</span>
+</button>
+<button aria-label="Compartir nodo" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Compartir nodo">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</article>
+<!-- Friend Card 5: Valentina Díaz -->
+<article class="group flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low/75 backdrop-blur-xl hover:bg-surface-container-low shadow-[0_8px_24px_rgba(6,14,32,0.35)] hover:shadow-[0_12px_32px_rgba(128,131,255,0.22)] transition-all" data-friend-recent="false" data-friend-status="online">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover shadow-[0_0_16px_rgba(192,193,255,0.25)]" data-alt="Portrait photo of Valentina Diaz, sound engineer and synthwave producer with vibrant dyed teal hair and reflective cyber ear-cuffs, ambient soft violet and deep blue lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm33mN0O2nYjsCkSZpDeQuJ_zHKVKw9wqVs3SfT0rQPoUzFmDSzT0v-Hcm1uNdsuqn0GZgxy-4ttez4mvVclYjv533ZocP0R48YqqEro8fk8LEPWWIjxjX5WLzgxwoA6gOYJYSaItO8KrC7ayfLZnUnG8W3je-ugAt-fV1ToKcqwICEXetPuNhYbjYhQ9wO9PiI3QIKxBaKnV7Tr5kZ0eUzKadt5DefPvwZqvjkQo"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-[#10B981] shadow-[0_0_10px_#10B981] flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-[#10B981]/15 text-[#10B981] font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                      En línea
+                    </span>
+<button aria-label="Opciones rápidas" class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-0.5 mb-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors" data-friend-name="Valentina Díaz">Valentina Díaz</h3>
+<span class="font-body-sm text-body-sm text-outline" data-friend-handle="@valen_sound">@valen_sound</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs mb-space-md">
+<span class="px-2.5 py-1 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm" data-friend-role="Sound Designer">
+                    Sound Designer
+                  </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                    Spatial Audio
+                  </span>
+</div>
+<div class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container/60 mb-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+<span class="font-semibold text-on-surface">19 nodos</span> en común con tu red
+                </div>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-space-md rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-label-md text-label-md shadow-[0_0_16px_rgba(128,131,255,0.3)] hover:shadow-[0_0_24px_rgba(128,131,255,0.5)] transition-all">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span>Enviar Mensaje</span>
+</button>
+<button aria-label="Compartir nodo" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Compartir nodo">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</article>
+<!-- Friend Card 6: Lucas Silva -->
+<article class="group flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low/75 backdrop-blur-xl hover:bg-surface-container-low shadow-[0_8px_24px_rgba(6,14,32,0.35)] hover:shadow-[0_12px_32px_rgba(128,131,255,0.15)] transition-all opacity-90 hover:opacity-100" data-friend-recent="true" data-friend-status="offline">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover filter grayscale-[20%]" data-alt="Creative lifestyle portrait of Lucas Silva, game systems designer and 3D environment artist with casual modern attire, atmospheric neon ambient hues of deep indigo and amber." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWHnJgsGRuSrn8-3P-jVqbCkv1aP9e4HuN6gIsk_CXdQHnbuJrv-mM-kpzEZQtsg9xJbjYWCaAYo4L1hHVTXLnpA_j-akrMsBtAvbNgCg_VO8AJol4jJKgNYh6Ph-goCS2rxkrU03htvVgurlgi8QoMLL2vw9qG_1w7lOdgJrFrSAHIXaWW3GJjZcdRXb8_PjVBqVjleEWO3yenl-c9vaJc_DTPMraEpj1yN3Xh9w"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-outline flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high text-outline font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                      Desconectado
+                    </span>
+<button aria-label="Opciones rápidas" class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-0.5 mb-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors" data-friend-name="Lucas Silva">Lucas Silva</h3>
+<span class="font-body-sm text-body-sm text-outline" data-friend-handle="@lucas_3d">@lucas_3d</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs mb-space-md">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm" data-friend-role="3D Architect">
+                    3D Architect
+                  </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                    Unreal Engine 5
+                  </span>
+</div>
+<div class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container/60 mb-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+<span class="font-semibold text-on-surface">11 nodos</span> en común con tu red
+                </div>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-space-md rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>
+<span>Dejar Mensaje</span>
+</button>
+<button aria-label="Compartir nodo" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Compartir nodo">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Bottom Pagination / Density Marker -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low/40 backdrop-blur-md">
+<span class="font-body-sm text-body-sm text-outline">Mostrando 6 de 42 amigos conectados</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">Anterior</button>
+<button class="px-space-md py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-[0_0_12px_rgba(128,131,255,0.3)]">Siguiente</button>
+</div>
+</div>
+</main>
+<!-- Right Side Panel: Suggested Friends & Live Activity (4 Columns on xl) -->
+<aside class="xl:col-span-4 flex flex-col gap-space-lg w-full">
+<!-- Widget 1: Amigos Sugeridos (Nodos Recomendados) -->
+<section class="p-space-lg rounded-xl bg-surface-container-low/70 backdrop-blur-xl shadow-[0_8px_24px_rgba(6,14,32,0.35)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">explore</span>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">Nodos Sugeridos</h2>
+</div>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">Ver todos</a>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Suggestion 1 -->
+<div class="flex items-center justify-between gap-space-sm p-space-sm rounded-lg hover:bg-surface-container-high/50 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-11 h-11 rounded-full object-cover flex-shrink-0" data-alt="Editorial portrait of Mateo Chen, quantum developer with minimalist glasses and glowing holographic ambient background lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBJsKKhaMuRkJg2cm6N_wOT5AV33-u6Wz5FY4MYyZwbqk6ijCU5Gr7mz8xgkYWpsan_UNMg44IL3nHUvVNlpQi8jML7HRJhBz3Qr67yMDFGqbeAtsmWXdHR43NK7HidejLR60RTxfWU5Lithr40rUksXqDSe4lAM2rDeBgkk_mAdQ5I5dNQMxp8NhLx0C_CWMgLPR5zM-VE7XDmARcSMog-kLvP2i6idFt0DsJW2w"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-medium truncate">Mateo Chen</span>
+<span class="font-body-sm text-body-sm text-outline truncate">@m_chen • 21 nodos mutuos</span>
+</div>
+</div>
+<button aria-label="Conectar con Mateo" class="w-8 h-8 rounded-full bg-primary-container/20 text-primary hover:bg-primary-container hover:text-on-primary-container flex items-center justify-center transition-all flex-shrink-0" title="Conectar">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+</button>
+</div>
+<!-- Suggestion 2 -->
+<div class="flex items-center justify-between gap-space-sm p-space-sm rounded-lg hover:bg-surface-container-high/50 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-11 h-11 rounded-full object-cover flex-shrink-0" data-alt="Modern high contrast portrait of Sara O'Connor, creative director and generative synth artist, soft teal and fuchsia backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqn-yC6Y1QdLyIyJOkGrvduRESUokfHnxkpsZ2huhJPEPbF_IiYs__Y2ZmHD5PP4kz93z4Q67KxB6SovmO8haBVVtuYoQ9CQEavrQK_RPQEcBVRcVL0-EqBv-DMY3v44IYMh392rw8xI3jyG4ymA2pxhiaSegSJP3Vezmzh5-VN1IlHfUHjKEABXlDnBoxz3T6KP1lzCKR_2MYXJQYiXLC0DVwO5wC6clWEsa7F-0"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-medium truncate">Sara O'Connor</span>
+<span class="font-body-sm text-body-sm text-outline truncate">@sara_art • 17 nodos mutuos</span>
+</div>
+</div>
+<button aria-label="Conectar con Sara" class="w-8 h-8 rounded-full bg-primary-container/20 text-primary hover:bg-primary-container hover:text-on-primary-container flex items-center justify-center transition-all flex-shrink-0" title="Conectar">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+</button>
+</div>
+<!-- Suggestion 3 -->
+<div class="flex items-center justify-between gap-space-sm p-space-sm rounded-lg hover:bg-surface-container-high/50 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-11 h-11 rounded-full object-cover flex-shrink-0" data-alt="Portrait of Julian Brandt, cyber security protocol researcher with sleek headset in neon lit tech workstation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK6I557daJYgkCOvxMJ19QFB5b625T8U2U_D_1v4TfU_8YDeyyGlm3wfhFkM5SxhSFMQ08QjWJaSnRYlDaIG_40cXTb6utugE3F78dZzjcargeqhRzIza56hmt-Lc0znqgRVjRdrIs7HPpqK1gLume7i-J5-BPn4BB-8tOshjwVgPvfjx1zuANaG7I-i5LLmZmObwP6hM57Kq3e7cdfiMZTM-xy3xnqRJtgfysARk"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-medium truncate">Julián Brandt</span>
+<span class="font-body-sm text-body-sm text-outline truncate">@brandt_sec • 8 nodos mutuos</span>
+</div>
+</div>
+<button aria-label="Conectar con Julián" class="w-8 h-8 rounded-full bg-primary-container/20 text-primary hover:bg-primary-container hover:text-on-primary-container flex items-center justify-center transition-all flex-shrink-0" title="Conectar">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Widget 2: Actividad Reciente en la Red -->
+<section class="p-space-lg rounded-xl bg-surface-container-low/70 backdrop-blur-xl shadow-[0_8px_24px_rgba(6,14,32,0.35)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">dynamic_feed</span>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">Actividad en Vivo</h2>
+</div>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+</div>
+<!-- Feed Items -->
+<div class="flex flex-col gap-space-md relative pl-3">
+<!-- Thread Line -->
+<div class="absolute left-1.5 top-2 bottom-2 w-0.5 bg-surface-container-highest"></div>
+<!-- Activity 1 -->
+<div class="flex items-start gap-space-sm relative">
+<span class="w-3 h-3 rounded-full bg-primary ring-4 ring-surface-container-low flex-shrink-0 mt-1"></span>
+<div class="flex flex-col">
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="font-semibold text-primary">Elena Rostova</strong> publicó un nuevo prototipo <span class="text-on-surface-variant font-medium">"Quantum Mesh V3"</span>.
+                  </p>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">Hace 8 minutos</span>
+</div>
+</div>
+<!-- Activity 2 -->
+<div class="flex items-start gap-space-sm relative">
+<span class="w-3 h-3 rounded-full bg-secondary ring-4 ring-surface-container-low flex-shrink-0 mt-1"></span>
+<div class="flex flex-col">
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="font-semibold text-secondary">Aoi Tanaka</strong> se conectó al cluster de cómputo neural de Tokio.
+                  </p>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">Hace 24 minutos</span>
+</div>
+</div>
+<!-- Activity 3 -->
+<div class="flex items-start gap-space-sm relative">
+<span class="w-3 h-3 rounded-full bg-[#10B981] ring-4 ring-surface-container-low flex-shrink-0 mt-1"></span>
+<div class="flex flex-col">
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="font-semibold text-on-surface">Carlos Mendoza</strong> desplegó 3 contratos en la red de prueba Sepolia.
+                  </p>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">Hace 1 hora</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Widget 3: Conectividad y Salud de Red (Data visualization) -->
+<section class="p-space-lg rounded-xl bg-gradient-to-br from-surface-container-low/90 to-surface-container-high/60 backdrop-blur-xl shadow-[0_8px_24px_rgba(6,14,32,0.35)] flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Topología de Nodos</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm font-semibold">98.4% Óptimo</span>
+</div>
+<!-- Mini Inline SVG Topology Viz -->
+<div class="w-full h-24 flex items-center justify-center relative overflow-hidden my-1">
+<svg class="w-full h-full text-primary" fill="none" viewbox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+<!-- Connective Lines -->
+<line stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5" x1="30" x2="90" y1="40" y2="25"></line>
+<line stroke="currentColor" stroke-opacity="0.5" stroke-width="2" x1="90" x2="160" y1="25" y2="45"></line>
+<line stroke="currentColor" stroke-opacity="0.4" stroke-width="1.5" x1="160" x2="230" y1="45" y2="20"></line>
+<line stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5" x1="230" x2="290" y1="20" y2="50"></line>
+<line stroke="#EC4899" stroke-dasharray="3 3" stroke-opacity="0.3" stroke-width="1" x1="90" x2="230" y1="25" y2="20"></line>
+<!-- Nodes -->
+<circle cx="30" cy="40" fill="#8083ff" r="5"></circle>
+<circle cx="90" cy="25" fill="#c0c1ff" r="7"></circle>
+<circle cx="160" cy="45" fill="#10B981" r="9"></circle>
+<circle cx="230" cy="20" fill="#ffb0cd" r="7"></circle>
+<circle cx="290" cy="50" fill="#a078ff" r="5"></circle>
+<!-- Pulses -->
+<circle cx="160" cy="45" r="14" stroke="#10B981" stroke-opacity="0.4" stroke-width="1"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>Nodos Activos: <strong>148</strong></span>
+<span>Canales P2P: <strong>32</strong></span>
+</div>
+</section>
+</aside>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-xl shadow-[0_-8px_24px_rgba(6,14,32,0.4)]"><div class="w-full px-margin flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-left"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[14px]">hub</span></div><span class="font-title-md text-title-md text-on-surface">NexusNet</span><span class="font-body-sm text-body-sm text-outline">— Ecosistema Social Hiperconectado</span></div><div class="flex items-center gap-space-lg font-label-md text-label-md text-on-surface-variant"><a class="hover:text-on-surface transition-colors" data-path="privacidad" href="#">Privacidad</a><a class="hover:text-on-surface transition-colors" data-path="protocolo" href="#">Protocolo</a><a class="hover:text-on-surface transition-colors" data-path="soporte" href="#">Soporte</a><span class="font-body-sm text-body-sm text-outline">© 2025 NexusNet Labs.</span></div></div></footer></body></html>

@@ -15,3 +15,7 @@ creterio propio
 ### para la tabla hash
 
 criterio propio
+
+
+
+los que son modificados, deben de tenerlos en orden para despues desordenarlos en la calificacion
