@@ -1,0 +1,300 @@
+#include "HttpServer.h"
+
+#include <cstdio>
+#include <thread>
+
+#include "../utils/Json.h"
+#include "WebSocket.h"
+
+#ifdef _WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#pragma comment(lib, "ws2_32.lib")
+using sock_t = SOCKET;
+#else
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <unistd.h>
+using sock_t = int;
+#endif
+
+static void closeSock(sock_t s) {
+#ifdef _WIN32
+    closesocket(s);
+#else
+    close(s);
+#endif
+}
+
+static bool sendAll(sock_t s, const char* data, size_t len) {
+    size_t sent = 0;
+    while (sent < len) {
+#ifdef _WIN32
+        int n = send(s, data + sent, (int)(len - sent), 0);
+#else
+        ssize_t n = send(s, data + sent, len - sent, 0);
+#endif
+        if (n <= 0) return false;
+        sent += (size_t)n;
+    }
+    return true;
+}
+
+void HttpServer::route(const std::string& method, const std::string& path, Handler h) {
+    // La tablita de rutas: "GET /api/amigos" -> su funcion. Asi de simple.
+    // Busqueda lineal porque son pocas rutas y todo es a mano.
+    std::string clave = method + " " + path;
+    for (size_t i = 0; i < routes_.tam(); i++) {
+        if (routes_[i].clave == clave) {
+            routes_[i].handler = h;
+            return;
+        }
+    }
+    routes_.push_back(Ruta{clave, h});
+}
+
+// Registramos la ruta que acepta WebSocket. El servidor guarda el path y la
+// funcion que atendera la conexion despues del handshake. El cambio de
+// protocolo ocurre en handleClient, cuando llega una peticion HTTP con las
+// cabeceras Upgrade y Connection correctas.
+void HttpServer::websocket(const std::string& path, WebSocketHandler h) {
+    wsPath_ = path;
+    wsHandler_ = h;
+}
+
+// Busca una cabecera ya guardada en minusculas.
+static std::string valorCabecera(const HttpRequest& req, const std::string& clave) {
+    for (size_t i = 0; i < req.headers.tam(); i++)
+        if (req.headers[i].clave == clave) return req.headers[i].valor;
+    return "";
+}
+
+static std::string lowerHeader(std::string s) {
+    for (size_t i = 0; i < s.size(); i++)
+        s[i] = (char)tolower((unsigned char)s[i]);
+    return s;
+}
+
+static std::string trimSv(const std::string& s) {
+    size_t a = s.find_first_not_of(" \t\r\n");
+    if (a == std::string::npos) return "";
+    size_t b = s.find_last_not_of(" \t\r\n");
+    return s.substr(a, b - a + 1);
+}
+
+HttpResponse HttpServer::dispatch(const HttpRequest& req) {
+    // Busca "METODO + ruta" en la tabla; si no existe, 404 de una vez.
+    std::string clave = req.method + " " + req.path;
+    for (size_t i = 0; i < routes_.tam(); i++) {
+        if (routes_[i].clave == clave) return routes_[i].handler(req);
+    }
+    HttpResponse r;
+    r.status = 404;
+    r.body = "{\"ok\":false,\"error\":\"ruta no encontrada\"}";
+    return r;
+}
+
+void HttpServer::handleClient(unsigned long long sockFd, HttpServer* self) {
+    sock_t cs = (sock_t)sockFd;
+    std::string data;
+    char buf[4096];
+    // Leer hasta fin de cabeceras.
+    while (data.find("\r\n\r\n") == std::string::npos && data.size() < 65536) {
+#ifdef _WIN32
+        int n = recv(cs, buf, sizeof(buf), 0);
+#else
+        ssize_t n = recv(cs, buf, sizeof(buf), 0);
+#endif
+        if (n <= 0) break;
+        data.append(buf, (size_t)n);
+    }
+    size_t hEnd = data.find("\r\n\r\n");
+    HttpResponse res;
+    if (hEnd == std::string::npos) {
+        res.status = 400;
+        res.body = "{\"ok\":false,\"error\":\"peticion invalida\"}";
+    } else {
+        // Linea de peticion.
+        size_t eol = data.find("\r\n");
+        std::string reqLine = data.substr(0, eol);
+        size_t sp1 = reqLine.find(' ');
+        size_t sp2 = reqLine.find(' ', sp1 + 1);
+        HttpRequest req;
+        if (sp1 == std::string::npos || sp2 == std::string::npos) {
+            res.status = 400;
+            res.body = "{\"ok\":false,\"error\":\"peticion invalida\"}";
+        } else {
+            req.method = reqLine.substr(0, sp1);
+            std::string target = reqLine.substr(sp1 + 1, sp2 - sp1 - 1);
+            // Cabeceras (lista de pares, sin map).
+            size_t pos = eol + 2;
+            while (pos < hEnd) {
+                size_t nl = data.find("\r\n", pos);
+                std::string line = data.substr(pos, nl - pos);
+                size_t c = line.find(':');
+                if (c != std::string::npos) {
+                    std::string hk = lowerHeader(trimSv(line.substr(0, c)));
+                    std::string hv = trimSv(line.substr(c + 1));
+                    bool ya = false;
+                    for (size_t k = 0; k < req.headers.tam(); k++) {
+                        if (req.headers[k].clave == hk) {
+                            req.headers[k].valor = hv;
+                            ya = true;
+                        }
+                    }
+                    if (!ya) req.headers.push_back(Par{hk, hv});
+                }
+                pos = nl + 2;
+            }
+            // Cuerpo segun Content-Length.
+            size_t contentLen = 0;
+            for (size_t k = 0; k < req.headers.tam(); k++) {
+                if (req.headers[k].clave == "content-length")
+                    contentLen = (size_t)strtoul(req.headers[k].valor.c_str(), nullptr, 10);
+            }
+            std::string body = data.substr(hEnd + 4);
+            while (body.size() < contentLen && body.size() < 10 * 1024 * 1024) {
+#ifdef _WIN32
+                int n = recv(cs, buf, sizeof(buf), 0);
+#else
+                ssize_t n = recv(cs, buf, sizeof(buf), 0);
+#endif
+                if (n <= 0) break;
+                body.append(buf, (size_t)n);
+            }
+            req.body = body;
+            // Path + query.
+            size_t q = target.find('?');
+            if (q == std::string::npos) {
+                req.path = target;
+            } else {
+                req.path = target.substr(0, q);
+                req.query = json::parseQuery(target.substr(q + 1));
+            }
+            if (req.path.empty()) req.path = "/";
+
+            // Aqui empieza WebSocket. La conexion sigue siendo la misma TCP y
+            // el mismo puerto, pero el navegador manda una peticion GET con
+            // Upgrade: websocket y Connection: Upgrade. Si el path coincide,
+            // respondemos 101 Switching Protocols. A partir de ese momento el
+            // socket deja de hablar HTTP y empieza a transportar tramas. La
+            // clave Sec-WebSocket-Key se transforma con SHA-1 y Base64 para
+            // formar Sec-WebSocket-Accept, que el navegador verifica.
+            if (req.method == "GET" && !self->wsPath_.empty() && req.path == self->wsPath_ &&
+                lowerHeader(trimSv(valorCabecera(req, "upgrade"))) == "websocket") {
+                std::string clave = valorCabecera(req, "sec-websocket-key");
+                if (!clave.empty() && self->wsHandler_) {
+                    std::string respuesta =
+                        "HTTP/1.1 101 Switching Protocols\r\n"
+                        "Upgrade: websocket\r\n"
+                        "Connection: Upgrade\r\n"
+                        "Sec-WebSocket-Accept: " +
+                        ws::acceptKey(clave) + "\r\n\r\n";
+                    if (!sendAll(cs, respuesta.c_str(), respuesta.size())) {
+                        closeSock(cs);
+                        return;
+                    }
+                    // Entregamos el socket ya convertido a WebSocket. La
+                    // funcion handler se queda leyendo tramas hasta que el
+                    // cliente cierra o ocurre un error. Cuando termina,
+                    // cerramos el socket y liberamos el hilo.
+                    self->wsHandler_((unsigned long long)cs, req);
+                    closeSock(cs);
+                    return;
+                }
+                res.status = 400;
+                res.body = "{\"ok\":false,\"error\":\"handshake websocket invalido\"}";
+            }
+
+            // Preflight CORS: el navegador manda OPTIONS antes del POST/GET real
+            // cuando viene de otro puerto (el frontend en :5173). Se responde
+            // 204 vacio y las cabeceras de abajo hacen el resto.
+            if (res.status != 200) {
+                // ya hay un error armado (por ejemplo, handshake invalido)
+            } else if (req.method == "OPTIONS") {
+                res.status = 204;
+                res.body = "";
+            } else {
+                res = self->dispatch(req);
+            }
+        }
+    }
+
+    const char* reason = "OK";
+    switch (res.status) {
+        case 200: reason = "OK"; break;
+        case 201: reason = "Created"; break;
+        case 204: reason = "No Content"; break;
+        case 400: reason = "Bad Request"; break;
+        case 401: reason = "Unauthorized"; break;
+        case 403: reason = "Forbidden"; break;
+        case 404: reason = "Not Found"; break;
+        case 409: reason = "Conflict"; break;
+        case 500: reason = "Internal Server Error"; break;
+        default: reason = "OK"; break;
+    }
+    std::string head = "HTTP/1.1 " + std::to_string(res.status) + " " + reason + "\r\n";
+    head += "Content-Type: " + res.contentType + "\r\n";
+    head += "Content-Length: " + std::to_string(res.body.size()) + "\r\n";
+    // Sin estas 3 lineas el navegador bloquea al frontend por CORS, porque
+    // el API (:5000) y la pagina (:5173) son "origenes" distintos.
+    head += "Access-Control-Allow-Origin: *\r\n";
+    head += "Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n";
+    head += "Access-Control-Allow-Headers: Content-Type\r\n";
+    head += "Connection: close\r\n\r\n";
+    sendAll(cs, head.c_str(), head.size());
+    if (!res.body.empty()) sendAll(cs, res.body.c_str(), res.body.size());
+    closeSock(cs);
+}
+
+bool HttpServer::listen(int port) {
+#ifdef _WIN32
+    WSADATA wsa;
+    if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0) return false;
+#endif
+    sock_t srv = socket(AF_INET, SOCK_STREAM, 0);
+#ifdef _WIN32
+    if (srv == INVALID_SOCKET) return false;
+#else
+    if (srv < 0) return false;
+#endif
+    int opt = 1;
+#ifdef _WIN32
+    // En Windows SO_REUSEADDR permitiria que DOS instancias escuchen el
+    // mismo puerto (cada una con su propia memoria). Se usa EXCLUSIVE para
+    // que la segunda instancia falle en bind() en vez de duplicar el servicio.
+    setsockopt(srv, SOL_SOCKET, SO_EXCLUSIVEADDRUSE, (const char*)&opt, sizeof(opt));
+#else
+    setsockopt(srv, SOL_SOCKET, SO_REUSEADDR, (const char*)&opt, sizeof(opt));
+#endif
+
+    sockaddr_in addr{};
+    addr.sin_family = AF_INET;
+    addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    addr.sin_port = htons((uint16_t)port);
+    if (bind(srv, (sockaddr*)&addr, sizeof(addr)) != 0) {
+        closeSock(srv);
+        return false;
+    }
+    if (::listen(srv, 64) != 0) {
+        closeSock(srv);
+        return false;
+    }
+    printf("Corriendo en el puerto %d - http://localhost:%d\n", port, port);
+    fflush(stdout);
+    while (true) {
+        sock_t cs = accept(srv, nullptr, nullptr);
+#ifdef _WIN32
+        if (cs == INVALID_SOCKET) break;
+#else
+        if (cs < 0) break;
+#endif
+        std::thread(handleClient, (unsigned long long)cs, this).detach();
+    }
+    closeSock(srv);
+#ifdef _WIN32
+    WSACleanup();
+#endif
+    return true;
+}

@@ -1,0 +1,2 @@
+# Los chats generados en tiempo de ejecucion no se versionan.
+*.lzw
